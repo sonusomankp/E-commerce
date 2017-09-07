@@ -21,62 +21,13 @@
       <li class="active"><a href="AddToBasket.jsp">Basket</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#myModal"data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="password.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="signup.jsp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div> 
 </nav>
   
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Sign Up</h4>
-        </div>
-        <div class="modal-body">
-<form action="task.jsp" method="post">
-<table>
-<tr>
-<td>
-     Name:<td><input type="text" name="name" required></td> </td> </tr>
-<tr>
-<td>
-     Father name:<td><input type="text" name="fname" required></td> </td> </tr>
-<tr>
-<td>Mail id:<td> <input type="email" name="email"required></td> </td> </tr>
-<tr>
-<td>   Address:<td><textarea rows="10" cols="10" name="add"required></textarea> </td> </td> </tr>
-<tr>
-<td>   pin code:<td><input type="number" name="pin"required></td> </td> </tr>
-<tr>
-<td>  mob no:<td><input type="number" name="mobno"required></td> </td> </tr>
-<tr>
-<td>   Gender:<td><input type="radio"name="c" value="male">Male<input type="radio" name="c" value="female">Female </td> </td> </tr>
-<tr>
-<td>   State:<td>
-        <select>
-        <option>KERALA</option>
-        <option>TAMILNADU</option>  
-        <option>GOA</option>
-        <option>KOLKATA</option>
-        </select> </td> </td> </tr>
-<tr>
-<td> <input type="submit" value="Sign up"></td> </tr>
-     </table>
-</form>
 
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
 
 <div class="container">
   <h3>Welcome to M4MOBILES</h3>
