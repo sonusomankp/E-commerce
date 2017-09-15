@@ -1,5 +1,4 @@
 package com.niit.EcomB.Dao;
-
 import java.util.List;
 
 import javax.persistence.EntityManager;
