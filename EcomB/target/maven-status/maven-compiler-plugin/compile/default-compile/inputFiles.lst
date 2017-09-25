@@ -1,5 +1,14 @@
 C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\Configuration\hibernateConfig.java
-C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\Dao\ProductDaoImpl.java
+C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\Model\Supplier.java
+C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\DaoImpl\CategoryDaolmpl.java
 C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\Model\Product.java
+C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\Model\Category.java
+C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\DaoImpl\UserDaoImpl.java
+C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\DaoImpl\ProductDaoImpl.java
+C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\DaoImpl\SupplierDaoImpl.java
+C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\Model\User.java
+C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\Dao\CategoryDao.java
 C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\App.java
 C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\Dao\ProductDao.java
+C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\Dao\SupplierDao.java
+C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\Dao\UserDao.java

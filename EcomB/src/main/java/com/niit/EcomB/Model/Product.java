@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -14,6 +16,11 @@ import org.springframework.stereotype.Component;
 @Component
 @Table(name="Products")
 public class Product implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -30,6 +37,28 @@ public class Product implements Serializable {
 	
 	@Column(name="format")
 	private String format;
+    @ManyToOne
+    @JoinColumn(name="c_id",insertable=true,updatable=true,nullable=false)
+    private Category category;
+    @ManyToOne
+    @JoinColumn(name="s_id",insertable=true,updatable=true,nullable=false)
+    private Supplier supplier;
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
 
 	public int getId() {
 		return id;

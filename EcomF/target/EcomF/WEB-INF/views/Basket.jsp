@@ -16,7 +16,7 @@
       <a class="navbar-brand" href="#"></a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="homepage.jsp">Home</a></li>
+      <li class="active"><a href="">Home</a></li>
       <li class="active"><a href="#">Basket</a></li>
       <li class="active"><a href="#">View Profile</a></li>
        <li class="active"><a href="#">Logout</a></li>

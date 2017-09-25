@@ -9,6 +9,8 @@ http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-3.0.xsd">
  
 	<context:component-scan base-package="com.niit.helloworld.controller" />
+	
+	<context:component-scan base-package="com.niit.EcomB" />
  
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

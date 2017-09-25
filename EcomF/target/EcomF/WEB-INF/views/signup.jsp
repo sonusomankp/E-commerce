@@ -16,13 +16,13 @@
       <a class="navbar-brand" href="#">M4MOBILES</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="homepage.jsp">Home</a></li>
+      <li class="active"><a href="">Home</a></li>
     </ul> 
   </div> 
 </nav>
 <div class="container">
   <h2>Sign Up</h2>
-  <form action>
+  <form action="up">
     <div class="form-group">
       <label for="name">Name:</label>
       <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">

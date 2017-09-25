@@ -17,7 +17,7 @@
       <a class="navbar-brand" href="#">M4MOBILES</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="homepage.jsp">Home</a></li>
+      <li class="active"><a href="">Home</a></li>
     </ul> 
   </div> 
 </nav>

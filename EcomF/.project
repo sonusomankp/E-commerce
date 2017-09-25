@@ -3,6 +3,7 @@
 	<name>EcomF</name>
 	<comment></comment>
 	<projects>
+		<project>EcomB</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

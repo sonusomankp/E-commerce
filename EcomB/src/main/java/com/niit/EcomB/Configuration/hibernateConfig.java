@@ -14,6 +14,10 @@ import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.EcomB.Model.Product;
+import com.niit.EcomB.Model.Supplier;
+import com.niit.EcomB.Model.User;
+import com.niit.EcomB.Model.Category;
+
 
 
 @Configuration
@@ -31,6 +35,9 @@ public class hibernateConfig
 	        sessionBuilder.addProperties(getHibernateProperties());
 	       
 	        sessionBuilder.addAnnotatedClass(Product.class);
+	        sessionBuilder.addAnnotatedClass(Category.class);
+	        sessionBuilder.addAnnotatedClass(Supplier.class);
+	        sessionBuilder.addAnnotatedClass(User.class);
 	       
 	        
 	        return sessionBuilder.buildSessionFactory();
