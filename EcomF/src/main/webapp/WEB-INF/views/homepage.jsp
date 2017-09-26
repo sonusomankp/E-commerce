@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,10 +26,13 @@
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories
     <span class="caret"></span></a>
     <ul class="dropdown-menu">
-      <li><a href="#">LAPTOP</a></li>
-      <li><a href="#">MOBILES</a></li>
-      <li><a href="#">TABLETS</a></li>
-      <li><a href="#">WATCHES</a></li>
+    
+
+<c:forEach var="designatee" items="${catego}">
+
+                       <li><a href="${designatee.c_id}">${designatee.Cname}</a></li>    
+                    </c:forEach>         
+
     </ul>
   </li>
   </ul>

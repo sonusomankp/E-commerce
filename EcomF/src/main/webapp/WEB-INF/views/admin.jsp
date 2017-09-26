@@ -39,16 +39,16 @@
    </form> </div>
     
  <div id="cat" class="tab-pane fade in active">
-    <form action="reg">
+    <form action="pro">
       <h3>Product</h3>
       <label><b>Type</b></label>
     <input type="text" name="dtype" required></br>
     <label><b>Title</b></label>
-    <input type="text"  name="psw" required></br>
+    <input type="text"  name="tit" required></br>
     <label><b>Short description</b></label>
-    <input type="text" name="dtype" required></br>
+    <input type="text" name="sdes" required></br>
     <label><b>format</b></label>
-    <input type="text"  name="psw" required></br>
+    <input type="text"  name="form" required></br>
     <button type="submit" class="btn btn-default" href="ad">Save</button>
    </form> </div>
     

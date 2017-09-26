@@ -1,5 +1,7 @@
 package com.niit.helloworld.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,8 +11,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.EcomB.DaoImpl.UserDaoImpl;
 import com.niit.EcomB.Dao.CategoryDao;
+import com.niit.EcomB.Dao.ProductDao;
 import com.niit.EcomB.Dao.SupplierDao;
 import com.niit.EcomB.Model.Category;
+import com.niit.EcomB.Model.Product;
 import com.niit.EcomB.Model.Supplier;
 import com.niit.EcomB.Model.User;
 
@@ -29,6 +33,9 @@ public class HelloWorldController {
 	@Autowired
 	SupplierDao sdao;
 	
+	@Autowired
+	ProductDao pdao;
+	
 	
 	String message = "Welcome to Spring MVC!";
  
@@ -41,10 +48,14 @@ public class HelloWorldController {
 		return mv;
 	}
 	@RequestMapping("/")
-	public String home()
+	public ModelAndView index()
 	{
-		System.out.println("hi");
-		return "homepage";
+		ArrayList<Category> l=(ArrayList<Category>)cdao.getallcategories();
+	System.out.println("printing");
+	
+	ModelAndView mv1 = new ModelAndView("homepage");
+	mv1.addObject("catego",l);
+	return mv1;
 	}
 	@RequestMapping("/in")
 	public String login()
@@ -78,32 +89,49 @@ public class HelloWorldController {
 		
 			ModelAndView mv1 = new ModelAndView("signup");
 			
-			
-		
 			return mv1;
 		}
-	@RequestMapping("/cate")
-	public ModelAndView cate(@RequestParam("dtype") String sname,@RequestParam("psw") String sadd) {
+	@RequestMapping("/supp")
+	public ModelAndView supp(@RequestParam("dtype") String sname,@RequestParam("psw") String sadd) {
 		System.out.println("in controller");
 		System.out.println(sname+sadd);
 		Supplier s=new Supplier();
 		s.setSname(sname);
 		s.setSname(sadd);
 		sdao.saveSupplier(s);
-	
-		ModelAndView mv1 = new ModelAndView("");
+		ModelAndView mv1 = new ModelAndView("admin");
+		
 		return mv1;
 	}
 	
-	@RequestMapping("/supp")
-	public ModelAndView supp(@RequestParam("psw") String cname) {
+	@RequestMapping("/cate")
+	public ModelAndView cate(@RequestParam("psw") String cname) {
 		System.out.println("in controller");
 		System.out.println(cname);
 		Category c=new Category();
 		c.setCname(cname);
 		cdao.saveCategory(c);
+		
+		
+		
+		ModelAndView mv1 = new ModelAndView("admin");
+	
+		return mv1;
+	}
+	@RequestMapping("/pro")
+	public ModelAndView pro(@RequestParam("dtype") String type ,@RequestParam("tit") String title,@RequestParam("sdes") String shortdes,@RequestParam("form") String format) {
+		System.out.println("in controller");
+		System.out.println(type+title+shortdes+format);
+		Product pr=new Product();
+		
+		pr.setdType(type);
+		pr.setTitle(title);
+		pr.setShortDescrption(shortdes);
+		pr.setFormat(format);
+		pdao.saveProduct(pr);
 	
 		ModelAndView mv1 = new ModelAndView("admin");
+		
 		return mv1;
 	}
 	

@@ -1,5 +1,7 @@
 package com.niit.EcomB.DaoImpl;
 
+import java.util.ArrayList;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -27,6 +29,22 @@ import com.niit.EcomB.Model.Category;
 				ssn.close();
 				
 			}
+			
+public ArrayList<Category> getallcategories() {
+		Session ssn=sessionFactory.openSession();
+		Transaction t=ssn.getTransaction();
+		t.begin();
+		org.hibernate.Query q= ssn.createQuery("from Category");
+	    ArrayList<Category> l=(ArrayList<Category>) q.list();
+        t.commit();
+		ssn.close();
+		for(Category c:l)
+		{
+			System.out.println(c);
+		}
+				return l;
+
+		}
 
 		}
 	

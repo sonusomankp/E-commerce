@@ -28,7 +28,8 @@
     <li><a data-toggle="tab" href="#sup">Supplier</a></li>
   </ul>
 <div class="tab-content">
-    <div id="#prod" class="tab-pane fade in active">
+ 
+ <div id="prod" class="tab-pane fade in active">
     <form action="cate">
       <h3>Category</h3>
       
@@ -36,27 +37,24 @@
     <input type="text"  name="psw" required></br>
     <button type="submit" class="btn btn-default" href="Admin">Save</button>
    </form> </div>
-    </div>
-  
-  
-  <div class="tab-content">
-    <div id="#cat" class="tab-pane fade in active">
-    <form action="reg">
+    
+ <div id="cat" class="tab-pane fade in active">
+    <form action="pro">
       <h3>Product</h3>
       <label><b>Type</b></label>
     <input type="text" name="dtype" required></br>
     <label><b>Title</b></label>
-    <input type="text"  name="psw" required></br>
+    <input type="text"  name="tit" required></br>
     <label><b>Short description</b></label>
-    <input type="text" name="dtype" required></br>
+    <input type="text" name="sdes" required></br>
     <label><b>format</b></label>
-    <input type="text"  name="psw" required></br>
+    <input type="text"  name="form" required></br>
     <button type="submit" class="btn btn-default" href="ad">Save</button>
    </form> </div>
-    </div>
     
-    <div class="tab-content">
-    <div id="#sup" class="tab-pane fade in active">
+    
+    
+    <div id="sup" class="tab-pane fade in active">
     <form action="supp">
       <h3>Supplier</h3>
       <label><b>Supplier name</b></label>
