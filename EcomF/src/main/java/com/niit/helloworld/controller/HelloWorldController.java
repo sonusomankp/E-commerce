@@ -50,12 +50,17 @@ public class HelloWorldController {
 	@RequestMapping("/")
 	public ModelAndView index()
 	{
-		ArrayList<Category> l=(ArrayList<Category>)cdao.getallcategories();
-	System.out.println("printing");
-	
-	ModelAndView mv1 = new ModelAndView("homepage");
-	mv1.addObject("catego",l);
-	return mv1;
+		System.out.println("in controller");
+		ModelAndView mv = new ModelAndView("homepage");
+		ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
+		System.out.println("hai after retrieve");
+		for(Category c:cat)
+		{
+			System.out.println(c);
+		}
+		mv.addObject("cate",cat);
+		System.out.println("after adding object");
+	    return mv;
 	}
 	@RequestMapping("/in")
 	public String login()

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import com.niit.EcomB.Model.Category;
 
 public interface CategoryDao {
-	void saveCategory(Category c);
-
-	ArrayList<Category> getallcategories();
+	public void saveCategory(Category c);
+    public ArrayList<Category> getallcategories();
 }

@@ -28,7 +28,7 @@
     <ul class="dropdown-menu">
     
 
-<c:forEach var="designatee" items="${catego}">
+<c:forEach var="designatee" items="${cate}">
 
                        <li><a href="${designatee.c_id}">${designatee.Cname}</a></li>    
                     </c:forEach>         
