@@ -74,11 +74,19 @@ public class HelloWorldController {
 		
 		return "signup";
 	}
+	
+	
 	@RequestMapping("/Admin")
-	public String Admin()
+	public ModelAndView Admin()
 	{
+
+		System.out.println("in controller");
+		ModelAndView mv = new ModelAndView("admin");
+		ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
+		System.out.println("hai after retrieve 1");
 		
-		return "admin";
+		mv.addObject("catego",cat);
+		return mv;
 	}
 	@RequestMapping("/up")
 		public ModelAndView up(@RequestParam("name") String uname ,@RequestParam("email") String uemail,@RequestParam("pwd") String pass,@RequestParam("no") long no) {

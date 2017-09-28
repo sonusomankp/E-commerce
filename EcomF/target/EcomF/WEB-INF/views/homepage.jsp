@@ -30,7 +30,7 @@
 
 <c:forEach var="designatee" items="${cate}">
 
-                       <li><a href="${designatee.c_id}">${designatee.Cname}</a></li>    
+                       <li><a href="${designatee.c_id}">${designatee.cname}</a></li>    
                     </c:forEach>         
 
     </ul>

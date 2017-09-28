@@ -34,7 +34,7 @@
       <h3>Category</h3>
       
     <label><b>Category Name</b></label>
-    <input type="text"  name="psw" required></br>
+    <input type="text" class="form-control" name="psw" required ></br>
     <button type="submit" class="btn btn-default" href="Admin">Save</button>
    </form> </div>
     
@@ -42,15 +42,29 @@
     <form action="pro">
       <h3>Product</h3>
       <label><b>Type</b></label>
-    <input type="text" name="dtype" required></br>
+    <input type="text" class="form-control" name="dtype" required></br>
     <label><b>Title</b></label>
-    <input type="text"  name="tit" required></br>
+    <input type="text" class="form-control" name="tit" required></br>
     <label><b>Short description</b></label>
-    <input type="text" name="sdes" required></br>
+    <input type="text" class="form-control" name="sdes" required></br>
+    <div class="form-group">
+        <label for="inputName">Category</label>
+        <select>
+     <option value="volvo">Select Category</option>
+     <c:forEach var="designatee" items="${catego}">
+
+                       <li><a href="${designatee.c_id}">${designatee.cname}</a></li>    
+                    </c:forEach>         
+     
+    </select>
+    </div>
+    
     <label><b>format</b></label>
-    <input type="text"  name="form" required></br>
+    <input type="text" class="form-control" name="form" required></br>
     <button type="submit" class="btn btn-default" href="ad">Save</button>
    </form> </div>
+   
+  
     
     
     
@@ -58,9 +72,9 @@
     <form action="supp">
       <h3>Supplier</h3>
       <label><b>Supplier name</b></label>
-    <input type="text" name="dtype" required></br>
+    <input type="text" name="dtype" class="form-control" required></br>
     <label><b>Address</b></label>
-    <input type="text"  name="psw" required></br>
+    <input type="text"  name="psw" class="form-control" required></br>
     <button type="submit" class="btn btn-default" href="admin">Save</button>
    </form> </div>
     </div>

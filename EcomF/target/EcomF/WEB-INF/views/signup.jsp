@@ -25,19 +25,19 @@
   <form action="up">
     <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" required>
        </div>
        <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" required>
     </div>
     <div class="form-group">
       <label for="no">Mob no:</label>
-      <input type="number" class="form-control" id="no" placeholder="Enter mobile number" name="no">
+      <input type="number" class="form-control" id="no" placeholder="Enter mobile number" name="no" required>
     </div>
     <div class="checkbox">
       <label><input type="checkbox" name="remember"> Remember me</label>
