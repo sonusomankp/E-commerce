@@ -7,12 +7,6 @@ import com.niit.EcomB.Model.Product;
 
 @SuppressWarnings("unused")
 public interface ProductDao {
-	void saveProduct(Product product);
-	/*
-	List<Product> getAllProducts();
+	public void saveProduct(Product product);
 	
-	Product getProductById(int id);
-	
-	void updateProductById(Product product);
-	*/
 }

@@ -51,6 +51,14 @@ public class Supplier implements Serializable
 		return s_id;
 	}
 
+	public int getS_id() {
+		return s_id;
+	}
+
+	public void setS_id(int s_id) {
+		this.s_id = s_id;
+	}
+
 	public void setId(int id) {
 		this.s_id = id;
 	}

@@ -83,9 +83,11 @@ public class HelloWorldController {
 		System.out.println("in controller");
 		ModelAndView mv = new ModelAndView("admin");
 		ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
+		ArrayList<Supplier> ss= (ArrayList<Supplier>)sdao.getallsuppliers();
 		System.out.println("hai after retrieve 1");
 		
 		mv.addObject("catego",cat);
+		mv.addObject("cat",ss);
 		return mv;
 	}
 	@RequestMapping("/up")
@@ -132,17 +134,28 @@ public class HelloWorldController {
 		return mv1;
 	}
 	@RequestMapping("/pro")
-	public ModelAndView pro(@RequestParam("dtype") String type ,@RequestParam("tit") String title,@RequestParam("sdes") String shortdes,@RequestParam("form") String format) {
+	public ModelAndView pro(@RequestParam("dtype") String type ,@RequestParam("tit") String title,@RequestParam("sdes") String shortdes,@RequestParam("form") String format,@RequestParam("ca") int categ,@RequestParam("su") int suppli) {
 		System.out.println("in controller");
-		System.out.println(type+title+shortdes+format);
+		System.out.println(type+title+shortdes+format+categ+suppli);
 		Product pr=new Product();
 		
 		pr.setdType(type);
 		pr.setTitle(title);
 		pr.setShortDescrption(shortdes);
 		pr.setFormat(format);
+		
+		
+		Category ca = new Category();
+		ca = cdao.getcatbyid(categ);
+		pr.setCategory(ca);
+		
+		Supplier sa = new Supplier();
+		sa = sdao.getsupbyid(suppli);
+		pr.setSupplier(sa);
+		
+		
+		
 		pdao.saveProduct(pr);
-	
 		ModelAndView mv1 = new ModelAndView("admin");
 		
 		return mv1;

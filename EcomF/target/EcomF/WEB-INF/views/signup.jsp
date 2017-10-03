@@ -29,15 +29,15 @@
        </div>
        <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email" required>
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" required>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" pattern=".{6,}" title="Six or more characters" name="pwd" required>
     </div>
     <div class="form-group">
       <label for="no">Mob no:</label>
-      <input type="number" class="form-control" id="no" placeholder="Enter mobile number" name="no" required>
+      <input type="number" class="form-control" id="no" placeholder="Enter mobile number" pattern ="[0-9]{10}" name="no" required>
     </div>
     <div class="checkbox">
       <label><input type="checkbox" name="remember"> Remember me</label>

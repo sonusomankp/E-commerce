@@ -26,16 +26,16 @@ public class Product implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	@Column(name="dType")
+	@Column(name="dType",nullable=false)
 	private String dType;
 	
-	@Column(name="title")
+	@Column(name="title",nullable=false)
 	private String title;
 	
-	@Column(name="SHORT_DESCRIPTION")
+	@Column(name="SHORT_DESCRIPTION",nullable=false)
 	private String shortDescrption;
 	
-	@Column(name="format")
+	@Column(name="format",nullable=false)
 	private String format;
     @ManyToOne
     @JoinColumn(name="c_id",insertable=true,updatable=true,nullable=false)

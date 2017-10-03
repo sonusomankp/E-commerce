@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -49,19 +50,29 @@
     <input type="text" class="form-control" name="sdes" required></br>
     <div class="form-group">
         <label for="inputName">Category</label>
-        <select>
+        <select name="ca">
      <option value="volvo">Select Category</option>
      <c:forEach var="designatee" items="${catego}">
-
-                       <li><a href="${designatee.c_id}">${designatee.cname}</a></li>    
+                       <option value="${designatee.c_id}">${designatee.cname}</option>    
                     </c:forEach>         
      
     </select>
+    
+     
+      <label for="inputName">Supplier</label>
+      <select name="su">
+     <option value="volvo">Select Supplier</option>
+     <c:forEach var="designatee" items="${cat}">
+                       <option value="${designatee.s_id}$">${designatee.sname}</option>    
+                    </c:forEach>         
+     
+    </select>
+    
     </div>
     
     <label><b>format</b></label>
     <input type="text" class="form-control" name="form" required></br>
-    <button type="submit" class="btn btn-default" href="ad">Save</button>
+    <button type="submit" class="btn btn-default" href="Admin">Save</button>
    </form> </div>
    
   
