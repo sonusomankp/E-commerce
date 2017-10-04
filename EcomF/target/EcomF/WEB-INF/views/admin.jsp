@@ -40,14 +40,14 @@
    </form> </div>
     
  <div id="cat" class="tab-pane fade in active">
-    <form action="pro">
+    <form action="pro" method="post">
       <h3>Product</h3>
-      <label><b>Type</b></label>
-    <input type="text" class="form-control" name="dtype" required></br>
-    <label><b>Title</b></label>
-    <input type="text" class="form-control" name="tit" required></br>
-    <label><b>Short description</b></label>
+      <label><b>Name</b></label>
+    <input type="text" class="form-control" name="name" required></br>
+    <label><b>Short Description</b></label>
     <input type="text" class="form-control" name="sdes" required></br>
+    <label><b>Price</b></label>
+    <input type="number" class="form-control" name="pric" required></br>
     <div class="form-group">
         <label for="inputName">Category</label>
         <select name="ca">
@@ -63,15 +63,15 @@
       <select name="su">
      <option value="volvo">Select Supplier</option>
      <c:forEach var="designatee" items="${cat}">
-                       <option value="${designatee.s_id}$">${designatee.sname}</option>    
+                       <option value="${designatee.s_id}">${designatee.sname}</option>    
                     </c:forEach>         
      
     </select>
     
     </div>
     
-    <label><b>format</b></label>
-    <input type="text" class="form-control" name="form" required></br>
+    <label><b>Stock</b></label>
+    <input type="number" class="form-control" name="stoc" required></br>
     <button type="submit" class="btn btn-default" href="Admin">Save</button>
    </form> </div>
    

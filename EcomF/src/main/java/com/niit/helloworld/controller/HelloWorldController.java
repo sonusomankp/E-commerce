@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -90,6 +92,7 @@ public class HelloWorldController {
 		mv.addObject("cat",ss);
 		return mv;
 	}
+	
 	@RequestMapping("/up")
 		public ModelAndView up(@RequestParam("name") String uname ,@RequestParam("email") String uemail,@RequestParam("pwd") String pass,@RequestParam("no") long no) {
 			System.out.println("in controller");
@@ -133,16 +136,16 @@ public class HelloWorldController {
 	
 		return mv1;
 	}
-	@RequestMapping("/pro")
-	public ModelAndView pro(@RequestParam("dtype") String type ,@RequestParam("tit") String title,@RequestParam("sdes") String shortdes,@RequestParam("form") String format,@RequestParam("ca") int categ,@RequestParam("su") int suppli) {
+	@RequestMapping(value="/pro",method=RequestMethod.POST)
+	public ModelAndView pro(@RequestParam("name") String name ,@RequestParam("sdes") String shor,@RequestParam("pric") int price,@RequestParam("stoc") int stock,@RequestParam("ca") int categ,@RequestParam("su") int suppli) {
 		System.out.println("in controller");
-		System.out.println(type+title+shortdes+format+categ+suppli);
+		System.out.println(name+shor+price+stock+categ+suppli);
 		Product pr=new Product();
 		
-		pr.setdType(type);
-		pr.setTitle(title);
-		pr.setShortDescrption(shortdes);
-		pr.setFormat(format);
+		pr.setName(name);
+	    pr.setShortDescrption(shor);
+		pr.setPrice(price);
+		pr.setStock(stock);
 		
 		
 		Category ca = new Category();
@@ -165,8 +168,24 @@ public class HelloWorldController {
 	public String bask()
 	{
 		
+		
 		return "Basket";
 	}
+	@RequestMapping("/{categoryid}")
+	public ModelAndView ca(@PathVariable("categoryid") int ca) {
+		System.out.println("in contoller"+ca);
+		ArrayList<Product> p1=new ArrayList<Product>();
+		p1=pdao.getprbyid(ca);
+		
+		ModelAndView mv1 = new ModelAndView("ProductList");
+		mv1.addObject("pro",p1);
+		
+		ArrayList<Category> l=(ArrayList<Category>)cdao.getallcategories();
+		mv1.addObject("cate",l);
 	
+		
+		return mv1;
+		
+	}
 }
 

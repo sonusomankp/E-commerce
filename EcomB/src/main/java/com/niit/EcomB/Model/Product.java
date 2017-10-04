@@ -26,79 +26,71 @@ public class Product implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	@Column(name="dType",nullable=false)
-	private String dType;
-	
-	@Column(name="title",nullable=false)
-	private String title;
+	@Column(name="NAME",nullable=false)
+	private String name;
 	
 	@Column(name="SHORT_DESCRIPTION",nullable=false)
 	private String shortDescrption;
 	
-	@Column(name="format",nullable=false)
-	private String format;
+	@Column(name="PRICE",nullable=false)
+	private int price;
+	
+	@Column(name="STOCK",nullable=false)
+	private int stock;
     @ManyToOne
     @JoinColumn(name="c_id",insertable=true,updatable=true,nullable=false)
     private Category category;
     @ManyToOne
     @JoinColumn(name="s_id",insertable=true,updatable=true,nullable=false)
     private Supplier supplier;
-
-	public Category getCategory() {
-		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-
-	public Supplier getSupplier() {
-		return supplier;
-	}
-
-	public void setSupplier(Supplier supplier) {
-		this.supplier = supplier;
-	}
-
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public String getdType() {
-		return dType;
+	public String getName() {
+		return name;
 	}
-
-	public void setdType(String dType) {
-		this.dType = dType;
+	public void setName(String name) {
+		this.name = name;
 	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
 	public String getShortDescrption() {
 		return shortDescrption;
 	}
-
 	public void setShortDescrption(String shortDescrption) {
 		this.shortDescrption = shortDescrption;
 	}
-
-	public String getFormat() {
-		return format;
+	public int getPrice() {
+		return price;
 	}
-
-	public void setFormat(String format) {
-		this.format = format;
+	public void setPrice(int price) {
+		this.price = price;
 	}
+	public int getStock() {
+		return stock;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	public Supplier getSupplier() {
+		return supplier;
+	}
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+    
 }
+
+	
 
 
