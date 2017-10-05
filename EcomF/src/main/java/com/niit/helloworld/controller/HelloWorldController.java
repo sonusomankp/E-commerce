@@ -171,21 +171,60 @@ public class HelloWorldController {
 		
 		return "Basket";
 	}
-	@RequestMapping("/{categoryid}")
-	public ModelAndView ca(@PathVariable("categoryid") int ca) {
+	@RequestMapping("/categoryid")
+	public ModelAndView productlist(@RequestParam("id") int ca) {
 		System.out.println("in contoller"+ca);
 		ArrayList<Product> p1=new ArrayList<Product>();
 		p1=pdao.getprbyid(ca);
 		
-		ModelAndView mv1 = new ModelAndView("ProductList");
-		mv1.addObject("pro",p1);
+		ModelAndView mv1 = new ModelAndView("productlist");
+		mv1.addObject("pros",p1);
 		
-		ArrayList<Category> l=(ArrayList<Category>)cdao.getallcategories();
-		mv1.addObject("cate",l);
-	
+		
 		
 		return mv1;
 		
+	}
+	
+
+  @RequestMapping("/listC")
+	public ModelAndView listC()
+	{
+
+		System.out.println("list C");
+		
+		ModelAndView mv = new ModelAndView("listcategory");
+		ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
+		mv.addObject("catego",cat);
+	
+		return mv;
+	}
+  
+  @RequestMapping("/listP")
+	public ModelAndView listP()
+	{
+
+		System.out.println("list P");
+		
+		ModelAndView mv = new ModelAndView("listproduct");
+		ArrayList<Product> cat=(ArrayList<Product>)pdao.getallproducts();
+		mv.addObject("pr",cat);
+	
+		return mv;
+	}
+  
+  
+  @RequestMapping("/listS")
+	public ModelAndView listS()
+	{
+
+		System.out.println("list S");
+		
+		ModelAndView mv = new ModelAndView("listsupplier");
+		ArrayList<Supplier> cat=(ArrayList<Supplier>)sdao.getallsuppliers();
+		mv.addObject("su",cat);
+	
+		return mv;
 	}
 }
 

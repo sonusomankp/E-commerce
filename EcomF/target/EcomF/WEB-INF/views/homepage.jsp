@@ -30,7 +30,7 @@
 
 <c:forEach var="designatee" items="${cate}">
 
-                       <li><a href="${designatee.c_id}">${designatee.cname}</a></li>    
+                       <li><a href="categoryid?id=${designatee.c_id}">${designatee.cname}</a></li>    
                     </c:forEach>         
 
     </ul>
@@ -86,8 +86,6 @@
     </a>
   </div>
 </div>
-<footer>
-  @M4MOBILES 2017
-</footer>
+<%@ include file = "footer.jsp" %>
 </body>
 </html>

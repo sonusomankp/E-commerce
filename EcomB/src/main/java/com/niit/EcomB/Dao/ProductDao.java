@@ -10,4 +10,5 @@ import com.niit.EcomB.Model.Product;
 public interface ProductDao {
 	public void saveProduct(Product product);
 	public ArrayList<Product> getprbyid(int id);
+	public ArrayList<Product> getallproducts();
 }

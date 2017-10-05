@@ -27,10 +27,11 @@
     <li class="active"><a data-toggle="tab" href="#prod">Category</a></li>
     <li><a data-toggle="tab" href="#cat">Product</a></li>  
     <li><a data-toggle="tab" href="#sup">Supplier</a></li>
+     <li><a data-toggle="tab" href="#lis">List</a></li>
   </ul>
 <div class="tab-content">
  
- <div id="prod" class="tab-pane fade in active">
+ <div id="prod" class="tab-pane fade in active ">
     <form action="cate">
       <h3>Category</h3>
       
@@ -39,7 +40,7 @@
     <button type="submit" class="btn btn-default" href="Admin">Save</button>
    </form> </div>
     
- <div id="cat" class="tab-pane fade in active">
+ <div id="cat" class="tab-pane fade">
     <form action="pro" method="post">
       <h3>Product</h3>
       <label><b>Name</b></label>
@@ -79,7 +80,7 @@
     
     
     
-    <div id="sup" class="tab-pane fade in active">
+    <div id="sup" class="tab-pane fade">
     <form action="supp">
       <h3>Supplier</h3>
       <label><b>Supplier name</b></label>
@@ -88,13 +89,41 @@
     <input type="text"  name="psw" class="form-control" required></br>
     <button type="submit" class="btn btn-default" href="admin">Save</button>
    </form> </div>
-    </div>
   
-
+  
+  
+  
+  
+  <div id="lis" class="tab-pane fade">
+    <h3>List</h3>
+    <div>
+    <form action="listC">
+    <button type="submit" class="btn btn-success" href="listcategory">Category</button>
+    </form>
+    </div>
+    
+    
+    <br>
+    
+    
+    <div>
+    <form action="listP">
+    <button type="submit" class="btn btn-info" href="listproduct">Product</button>
+      </form>
+    </div>
+    
+    
+    <br>
+    
+    
+     <div>
+     <form action="listS">
+    <button type="submit" class="btn btn-warning" href="listsupplier">Supplier</button>
+     </form>
     </div>
     
 
-
+  </div>
 
 </body>
 </html>
