@@ -45,11 +45,25 @@ public ArrayList<Category> getallcategories() {
 				return l;
 
 		}
-public Category getcatbyid(int cat) {
+  public Category getcatbyid(int cat) {
 	Session ssn=sessionFactory.openSession();
 	Transaction t=ssn.getTransaction();
 	t.begin();
 	Category i = (Category) ssn.get(Category.class,cat);
+	
+	t.commit();
+	ssn.close();
+	return i;
+		}
+
+
+  public Category deleteCategory(int id) {
+	Session ssn=sessionFactory.openSession();
+	Transaction t=ssn.getTransaction();
+	t.begin();
+	
+	Category i = (Category) ssn.get(Category.class,id);
+	ssn.delete(i);
 	
 	t.commit();
 	ssn.close();

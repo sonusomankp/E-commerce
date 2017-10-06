@@ -58,6 +58,20 @@ public class SupplierDaoImpl implements SupplierDao {
 		ssn.close();
 		return i;
 			}
+	
+	
+	public Supplier deleteSupplier(int id) {
+		Session ssn=sessionFactory.openSession();
+		Transaction t=ssn.getTransaction();
+		t.begin();
+		
+		Supplier i = (Supplier) ssn.get(Supplier.class,id);
+		ssn.delete(i);
+		
+		t.commit();
+		ssn.close();
+		return i;
+			}
 
 }
 

@@ -15,6 +15,7 @@ import com.niit.EcomB.DaoImpl.UserDaoImpl;
 import com.niit.EcomB.Dao.CategoryDao;
 import com.niit.EcomB.Dao.ProductDao;
 import com.niit.EcomB.Dao.SupplierDao;
+import com.niit.EcomB.Dao.UserDao;
 import com.niit.EcomB.Model.Category;
 import com.niit.EcomB.Model.Product;
 import com.niit.EcomB.Model.Supplier;
@@ -27,7 +28,7 @@ import com.niit.EcomB.Model.User;
 public class HelloWorldController {
 	
 	@Autowired
-	UserDaoImpl udao;
+	UserDao udao;
 	
 	@Autowired
 	CategoryDao cdao;
@@ -115,7 +116,7 @@ public class HelloWorldController {
 		System.out.println(sname+sadd);
 		Supplier s=new Supplier();
 		s.setSname(sname);
-		s.setSname(sadd);
+		s.setSaddr(sadd);
 		sdao.saveSupplier(s);
 		ModelAndView mv1 = new ModelAndView("admin");
 		
@@ -226,5 +227,44 @@ public class HelloWorldController {
 	
 		return mv;
 	}
+  @RequestMapping("/catdel")
+	public ModelAndView catdelete(@RequestParam("id") int cad) {
+		System.out.println("in contoller"+cad);
+		ArrayList<Category> c = new ArrayList<Category>();
+		cdao.deleteCategory(cad);
+		
+		ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
+		
+		
+		
+		ModelAndView mv1 = new ModelAndView("listcategory");
+		mv1.addObject("pros",c);
+		mv1.addObject("catego",cat);
+		
+		
+		
+		return mv1;
+		
+	}
+  
+  @RequestMapping("/supdel")
+	public ModelAndView supdelete(@RequestParam("id") int sup) {
+		System.out.println("in contoller"+sup);
+		ArrayList<Supplier> s = new ArrayList<Supplier>();
+		sdao.deleteSupplier(sup);
+		
+		ArrayList<Supplier> cat=(ArrayList<Supplier>)sdao.getallsuppliers();
+		
+		
+		
+		ModelAndView mv1 = new ModelAndView("listsupplier");
+		mv1.addObject("pros",s);
+		mv1.addObject("su",cat);
+		
+		
+		
+		return mv1;
+  
+}
 }
 

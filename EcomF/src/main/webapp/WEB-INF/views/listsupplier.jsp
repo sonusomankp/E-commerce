@@ -12,9 +12,20 @@
 </head>
 <body>
 <%@ include file = "header.jsp" %>
+<h3>SUPPLIER LIST</h3>
 <c:forEach var="designatee" items="${su}">
+<table>
+<tr>
 
-                       <li><a href="supplierid?id=${designatee.s_id}">${designatee.sname}</a></li>    
-                    </c:forEach>
+<th><li><a href="categoryid?id=${designatee.s_id}">${designatee.sname}</a></li></th>
+<th><form action="supupd?id=${designatee.s_id}">
+    <button type="submit" class="btn btn-info" href="listproduct">Edit</button> </form></th> <br>
+    <th><a href="supdel?id=${designatee.s_id}">
+    <button type="submit" class="btn btn-info" href="listS">Delete</button> </a></th>
+</tr>  
+                       
+      
+  </table>
+  </c:forEach>
 </body>
 </html>
