@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 import com.niit.EcomB.Dao.ProductDao;
 import com.niit.EcomB.Model.Category;
 import com.niit.EcomB.Model.Product;
+import com.niit.EcomB.Model.Supplier;
 
 
 
@@ -45,7 +46,7 @@ public class ProductDaoImpl implements ProductDao{
 		Transaction t=ssn.getTransaction();
 		t.begin();
 		
-		Query q = ssn.createQuery("from Product where c_id = "+id);
+		Query q = ssn.createQuery("from Product where id = "+id);
 		ArrayList<Product> cat = (ArrayList<Product>)q.list();
 		t.commit();
 		ssn.close();
@@ -68,6 +69,19 @@ public class ProductDaoImpl implements ProductDao{
 				return l;
 
 		}
+	
+	public Product deleteProduct(int id) {
+		Session ssn=sessionFactory.openSession();
+		Transaction t=ssn.getTransaction();
+		t.begin();
+		
+		Product i = (Product) ssn.get(Product.class,id);
+		ssn.delete(i);
+		
+		t.commit();
+		ssn.close();
+		return i;
+			}
 }
 
 

@@ -18,8 +18,8 @@
 <tr>
 
 <th><li><a href="categoryid?id=${designatee.c_id}">${designatee.cname}</a></li></th>
-<th><form action="catupd?id=${designatee.c_id}">
-    <button type="submit" class="btn btn-info" href="listproduct">Edit</button> </form></th> <br>
+<th>
+    <a href="catu?id=${designatee.c_id}"><button type="submit" class="btn btn-info" >Edit</button> </a></th> <br>
     <th><a href="catdel?id=${designatee.c_id}">
     <button type="submit" class="btn btn-info" href="listC">Delete</button> </a></th>
 </tr>  

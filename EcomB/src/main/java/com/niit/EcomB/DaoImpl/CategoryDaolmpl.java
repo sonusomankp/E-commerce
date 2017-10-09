@@ -69,5 +69,16 @@ public ArrayList<Category> getallcategories() {
 	ssn.close();
 	return i;
 		}
+  
+  public void updateCategory(Category c) {
+		Session ssn=sessionFactory.openSession();
+		Transaction t=ssn.getTransaction();
+		t.begin();
+		ssn.update(c);
+		t.commit();
+		ssn.close();
+		
+	}
+  
 		}
 	

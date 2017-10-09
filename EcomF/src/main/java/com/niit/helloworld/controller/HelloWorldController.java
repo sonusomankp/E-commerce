@@ -266,5 +266,53 @@ public class HelloWorldController {
 		return mv1;
   
 }
+  
+  @RequestMapping("/prodel")
+	public ModelAndView prodelete(@RequestParam("id") int prod) {
+		System.out.println("in contoller"+prod);
+		ArrayList<Product> s = new ArrayList<Product>();
+		pdao.deleteProduct(prod);
+		
+		ArrayList<Product> cat=(ArrayList<Product>)pdao.getallproducts();
+		
+		
+		
+		ModelAndView mv1 = new ModelAndView("listproduct");
+		mv1.addObject("pros",s);
+		mv1.addObject("pr",cat);
+		
+		
+		
+		return mv1;
+
+}
+  
+  @RequestMapping("/catupd")
+ 	public ModelAndView catupdate(@RequestParam("id") int cid,@RequestParam("name") String cname ) 
+  {
+	  System.out.println("in controller");
+	  System.out.println(cname);
+	  Category c=new Category();
+	  c.setC_id(cid);
+	  c.setCname(cname);
+      cdao.updateCategory(c);
+      
+      
+      ModelAndView mv1 = new ModelAndView("updatecategory");
+      return mv1;
+  }
+ 		
+  
+  @RequestMapping("/catu")
+ 	public ModelAndView catup(@RequestParam("id") int cid ) 
+  {
+	  Category p=new Category();
+	  p=cdao.getcatbyid(cid);
+	  System.err.println(p);
+	  ModelAndView mv1 = new ModelAndView("updatecategory");
+      mv1.addObject("cat",p);
+      return mv1;
+  }
+ 		
 }
 
