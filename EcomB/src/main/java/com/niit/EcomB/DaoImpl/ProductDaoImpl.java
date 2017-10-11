@@ -46,7 +46,7 @@ public class ProductDaoImpl implements ProductDao{
 		Transaction t=ssn.getTransaction();
 		t.begin();
 		
-		Query q = ssn.createQuery("from Product where id = "+id);
+		Query q = ssn.createQuery("from Product where  c_id= "+id);
 		ArrayList<Product> cat = (ArrayList<Product>)q.list();
 		t.commit();
 		ssn.close();
@@ -60,7 +60,8 @@ public class ProductDaoImpl implements ProductDao{
 		t.begin();
 		org.hibernate.Query q= ssn.createQuery("from Product");
 	    ArrayList<Product> l=(ArrayList<Product>) q.list();
-        t.commit();
+
+	    t.commit();
 		ssn.close();
 		for(Product c:l)
 		{
@@ -77,6 +78,27 @@ public class ProductDaoImpl implements ProductDao{
 		
 		Product i = (Product) ssn.get(Product.class,id);
 		ssn.delete(i);
+		
+		t.commit();
+		ssn.close();
+		return i;
+			}
+	
+	public void updateProduct(Product p) {
+		Session ssn=sessionFactory.openSession();
+		Transaction t=ssn.getTransaction();
+		t.begin();
+		ssn.update(p);
+		t.commit();
+		ssn.close();
+		
+	}
+	
+	public Product getprobyid(int id) {
+		Session ssn=sessionFactory.openSession();
+		Transaction t=ssn.getTransaction();
+		t.begin();
+		Product i = (Product) ssn.get(Product.class,id);
 		
 		t.commit();
 		ssn.close();

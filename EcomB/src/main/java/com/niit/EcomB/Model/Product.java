@@ -37,7 +37,13 @@ public class Product implements Serializable {
 	
 	@Column(name="STOCK",nullable=false)
 	private int stock;
-    @ManyToOne
+	
+	@Column(name="IMAGE")
+	private String img;
+	
+	
+   
+	@ManyToOne
     @JoinColumn(name="c_id",insertable=true,updatable=true,nullable=false)
     private Category category;
     @ManyToOne
@@ -88,6 +94,13 @@ public class Product implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
+	 public String getImg() {
+			return img;
+		}
+		public void setImg(String img) {
+			this.img = img;
+		}
     
 }
 

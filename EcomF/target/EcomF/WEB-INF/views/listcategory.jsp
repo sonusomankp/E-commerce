@@ -11,7 +11,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<%@ include file = "header.jsp" %>
+<jsp:include page="header.jsp"/>
 <h3>CATEGORY LIST</h3>
 <c:forEach var="designatee" items="${catego}">
 <table>

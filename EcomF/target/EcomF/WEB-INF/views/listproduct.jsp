@@ -11,15 +11,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<%@ include file = "header.jsp" %>
+<jsp:include page="header.jsp"/>
 <h3>PRODUCT LIST</h3>
 <c:forEach var="p" items="${pr}">
 <table>
 <tr>
 
-<th><li><a href="categoryid?id=${designatee.id}">${p.name}</a></li></th>
-<th><form action="proupd?id=${p.id}">
-    <button type="submit" class="btn btn-info" href="listproduct">Edit</button> </form></th> <br>
+<th><li><a href="categoryid?id=${p.id}">${p.name}</a></li></th>
+<th><a href="prou?id=${p.id}"><button type="submit" class="btn btn-info" >Edit</button> </a></th> 
+    
     <th><a href="prodel?id=${p.id}">
     <button type="submit" class="btn btn-info" href="listP">Delete</button> </a></th>
 </tr>  

@@ -12,4 +12,7 @@ public interface ProductDao {
 	public ArrayList<Product> getprbyid(int id);
 	public ArrayList<Product> getallproducts();
 	public Product deleteProduct(int id);
+	public void updateProduct(Product p);
+	public Product getprobyid(int id);
+	
 }

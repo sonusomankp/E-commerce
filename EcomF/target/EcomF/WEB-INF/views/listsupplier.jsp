@@ -11,15 +11,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<%@ include file = "header.jsp" %>
+<jsp:include page="header.jsp"/>
 <h3>SUPPLIER LIST</h3>
 <c:forEach var="designatee" items="${su}">
 <table>
 <tr>
 
 <th><li><a href="categoryid?id=${designatee.s_id}">${designatee.sname}</a></li></th>
-<th><form action="supupd?id=${designatee.s_id}">
-    <button type="submit" class="btn btn-info" href="listproduct">Edit</button> </form></th> <br>
+<th>
+<a href="supu?id=${designatee.s_id}"><button type="submit" class="btn btn-info" >Edit</button> </a></th> <br>
+    
     <th><a href="supdel?id=${designatee.s_id}">
     <button type="submit" class="btn btn-info" href="listS">Delete</button> </a></th>
 </tr>  

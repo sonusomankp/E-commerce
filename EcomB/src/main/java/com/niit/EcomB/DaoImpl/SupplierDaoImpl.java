@@ -22,7 +22,8 @@ public class SupplierDaoImpl implements SupplierDao {
 		this.sessionFactory=sessionfactory;
 	}
 
-
+//adding supplier
+	
 	public void saveSupplier(Supplier supplier) {
 		Session ssn=sessionFactory.openSession();
 		Transaction t=ssn.getTransaction();
@@ -32,7 +33,8 @@ public class SupplierDaoImpl implements SupplierDao {
 		ssn.close();
 		
 	}
-	
+
+//getting all suppliers
 	public ArrayList<Supplier> getallsuppliers() {
 		Session ssn=sessionFactory.openSession();
 		Transaction t=ssn.getTransaction();
@@ -48,6 +50,9 @@ public class SupplierDaoImpl implements SupplierDao {
 				return l;
 
 		}
+	
+//get supplier id	
+	
 	public Supplier getsupbyid(int sup) {
 		Session ssn=sessionFactory.openSession();
 		Transaction t=ssn.getTransaction();
@@ -59,6 +64,7 @@ public class SupplierDaoImpl implements SupplierDao {
 		return i;
 			}
 	
+//delete supplier list
 	
 	public Supplier deleteSupplier(int id) {
 		Session ssn=sessionFactory.openSession();
@@ -72,6 +78,18 @@ public class SupplierDaoImpl implements SupplierDao {
 		ssn.close();
 		return i;
 			}
+	
+//update supplier list	
+	
+	public void updateSupplier(Supplier s) {
+		Session ssn=sessionFactory.openSession();
+		Transaction t=ssn.getTransaction();
+		t.begin();
+		ssn.update(s);
+		t.commit();
+		ssn.close();
+		
+	}
 
 }
 

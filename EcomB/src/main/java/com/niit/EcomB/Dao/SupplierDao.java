@@ -10,4 +10,5 @@ public interface SupplierDao {
 	public ArrayList<Supplier> getallsuppliers();
 	public Supplier getsupbyid(int sup);
 	public Supplier deleteSupplier(int id);
+	public void updateSupplier(Supplier s);
 }

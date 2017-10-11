@@ -20,6 +20,9 @@ import com.niit.EcomB.Model.Category;
 			{
 				this.sessionFactory=sessionfactory;
 			}	
+			
+			//adding category
+			
 			public void saveCategory(Category c) {
 				Session ssn=sessionFactory.openSession();
 				Transaction t=ssn.getTransaction();
@@ -29,6 +32,8 @@ import com.niit.EcomB.Model.Category;
 				ssn.close();
 				
 			}
+			
+//getting all categories
 			
 public ArrayList<Category> getallcategories() {
 		Session ssn=sessionFactory.openSession();
@@ -45,6 +50,9 @@ public ArrayList<Category> getallcategories() {
 				return l;
 
 		}
+
+//delete category list
+
   public Category getcatbyid(int cat) {
 	Session ssn=sessionFactory.openSession();
 	Transaction t=ssn.getTransaction();
@@ -56,7 +64,8 @@ public ArrayList<Category> getallcategories() {
 	return i;
 		}
 
-
+//delete category list
+  
   public Category deleteCategory(int id) {
 	Session ssn=sessionFactory.openSession();
 	Transaction t=ssn.getTransaction();
@@ -69,6 +78,8 @@ public ArrayList<Category> getallcategories() {
 	ssn.close();
 	return i;
 		}
+  
+//update category list	
   
   public void updateCategory(Category c) {
 		Session ssn=sessionFactory.openSession();

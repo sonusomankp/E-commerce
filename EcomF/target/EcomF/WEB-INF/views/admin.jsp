@@ -11,17 +11,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">M4MOBILES</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="">Home</a></li>
-      
-    </ul>
-  </div> 
-</nav>
+<jsp:include page="header.jsp"/>
 <div class="container">
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#prod">Category</a></li>
@@ -41,7 +31,7 @@
    </form> </div>
     
  <div id="cat" class="tab-pane fade">
-    <form action="pro" method="post">
+    <form action="pro" method="post" enctype="multipart/form-data">
       <h3>Product</h3>
       <label><b>Name</b></label>
     <input type="text" class="form-control" name="name" required></br>
@@ -73,6 +63,10 @@
     
     <label><b>Stock</b></label>
     <input type="number" class="form-control" name="stoc" required></br>
+    
+    <label><b>image</b></label>
+    <input type="file" class="form-control" name="img" required/></br>
+    
     <button type="submit" class="btn btn-default" href="Admin">Save</button>
    </form> </div>
    
@@ -87,7 +81,7 @@
     <input type="text" name="dtype" class="form-control" required></br>
     <label><b>Address</b></label>
     <input type="text"  name="psw" class="form-control" required></br>
-    <button type="submit" class="btn btn-default" href="admin">Save</button>
+    <button type="submit" class="btn btn-default" href="Admin">Save</button>
    </form> </div>
   
   

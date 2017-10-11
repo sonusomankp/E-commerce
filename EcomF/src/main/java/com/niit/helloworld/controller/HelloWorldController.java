@@ -1,5 +1,8 @@
 package com.niit.helloworld.controller;
 
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.EcomB.DaoImpl.UserDaoImpl;
@@ -79,92 +83,6 @@ public class HelloWorldController {
 	}
 	
 	
-	@RequestMapping("/Admin")
-	public ModelAndView Admin()
-	{
-
-		System.out.println("in controller");
-		ModelAndView mv = new ModelAndView("admin");
-		ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
-		ArrayList<Supplier> ss= (ArrayList<Supplier>)sdao.getallsuppliers();
-		System.out.println("hai after retrieve 1");
-		
-		mv.addObject("catego",cat);
-		mv.addObject("cat",ss);
-		return mv;
-	}
-	
-	@RequestMapping("/up")
-		public ModelAndView up(@RequestParam("name") String uname ,@RequestParam("email") String uemail,@RequestParam("pwd") String pass,@RequestParam("no") long no) {
-			System.out.println("in controller");
-			System.out.println(uname+uemail+pass+no);
-			User p=new User();
-			
-			p.setUname(uname);
-			p.setUemail(uemail);
-			p.setUmobno(no);
-			p.setUpass(pass);
-			udao.saveUser(p);
-		
-			ModelAndView mv1 = new ModelAndView("signup");
-			
-			return mv1;
-		}
-	@RequestMapping("/supp")
-	public ModelAndView supp(@RequestParam("dtype") String sname,@RequestParam("psw") String sadd) {
-		System.out.println("in controller");
-		System.out.println(sname+sadd);
-		Supplier s=new Supplier();
-		s.setSname(sname);
-		s.setSaddr(sadd);
-		sdao.saveSupplier(s);
-		ModelAndView mv1 = new ModelAndView("admin");
-		
-		return mv1;
-	}
-	
-	@RequestMapping("/cate")
-	public ModelAndView cate(@RequestParam("psw") String cname) {
-		System.out.println("in controller");
-		System.out.println(cname);
-		Category c=new Category();
-		c.setCname(cname);
-		cdao.saveCategory(c);
-		
-		
-		
-		ModelAndView mv1 = new ModelAndView("admin");
-	
-		return mv1;
-	}
-	@RequestMapping(value="/pro",method=RequestMethod.POST)
-	public ModelAndView pro(@RequestParam("name") String name ,@RequestParam("sdes") String shor,@RequestParam("pric") int price,@RequestParam("stoc") int stock,@RequestParam("ca") int categ,@RequestParam("su") int suppli) {
-		System.out.println("in controller");
-		System.out.println(name+shor+price+stock+categ+suppli);
-		Product pr=new Product();
-		
-		pr.setName(name);
-	    pr.setShortDescrption(shor);
-		pr.setPrice(price);
-		pr.setStock(stock);
-		
-		
-		Category ca = new Category();
-		ca = cdao.getcatbyid(categ);
-		pr.setCategory(ca);
-		
-		Supplier sa = new Supplier();
-		sa = sdao.getsupbyid(suppli);
-		pr.setSupplier(sa);
-		
-		
-		
-		pdao.saveProduct(pr);
-		ModelAndView mv1 = new ModelAndView("admin");
-		
-		return mv1;
-	}
-	
 	@RequestMapping("/bas")
 	public String bask()
 	{
@@ -172,147 +90,20 @@ public class HelloWorldController {
 		
 		return "Basket";
 	}
-	@RequestMapping("/categoryid")
-	public ModelAndView productlist(@RequestParam("id") int ca) {
-		System.out.println("in contoller"+ca);
-		ArrayList<Product> p1=new ArrayList<Product>();
-		p1=pdao.getprbyid(ca);
-		
-		ModelAndView mv1 = new ModelAndView("productlist");
-		mv1.addObject("pros",p1);
-		
-		
-		
-		return mv1;
-		
-	}
+
 	
 
-  @RequestMapping("/listC")
-	public ModelAndView listC()
-	{
+  
 
-		System.out.println("list C");
-		
-		ModelAndView mv = new ModelAndView("listcategory");
-		ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
-		mv.addObject("catego",cat);
-	
-		return mv;
-	}
   
-  @RequestMapping("/listP")
-	public ModelAndView listP()
-	{
 
-		System.out.println("list P");
-		
-		ModelAndView mv = new ModelAndView("listproduct");
-		ArrayList<Product> cat=(ArrayList<Product>)pdao.getallproducts();
-		mv.addObject("pr",cat);
-	
-		return mv;
-	}
   
   
-  @RequestMapping("/listS")
-	public ModelAndView listS()
-	{
-
-		System.out.println("list S");
-		
-		ModelAndView mv = new ModelAndView("listsupplier");
-		ArrayList<Supplier> cat=(ArrayList<Supplier>)sdao.getallsuppliers();
-		mv.addObject("su",cat);
-	
-		return mv;
-	}
-  @RequestMapping("/catdel")
-	public ModelAndView catdelete(@RequestParam("id") int cad) {
-		System.out.println("in contoller"+cad);
-		ArrayList<Category> c = new ArrayList<Category>();
-		cdao.deleteCategory(cad);
-		
-		ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
-		
-		
-		
-		ModelAndView mv1 = new ModelAndView("listcategory");
-		mv1.addObject("pros",c);
-		mv1.addObject("catego",cat);
-		
-		
-		
-		return mv1;
-		
-	}
-  
-  @RequestMapping("/supdel")
-	public ModelAndView supdelete(@RequestParam("id") int sup) {
-		System.out.println("in contoller"+sup);
-		ArrayList<Supplier> s = new ArrayList<Supplier>();
-		sdao.deleteSupplier(sup);
-		
-		ArrayList<Supplier> cat=(ArrayList<Supplier>)sdao.getallsuppliers();
-		
-		
-		
-		ModelAndView mv1 = new ModelAndView("listsupplier");
-		mv1.addObject("pros",s);
-		mv1.addObject("su",cat);
-		
-		
-		
-		return mv1;
-  
-}
-  
-  @RequestMapping("/prodel")
-	public ModelAndView prodelete(@RequestParam("id") int prod) {
-		System.out.println("in contoller"+prod);
-		ArrayList<Product> s = new ArrayList<Product>();
-		pdao.deleteProduct(prod);
-		
-		ArrayList<Product> cat=(ArrayList<Product>)pdao.getallproducts();
-		
-		
-		
-		ModelAndView mv1 = new ModelAndView("listproduct");
-		mv1.addObject("pros",s);
-		mv1.addObject("pr",cat);
-		
-		
-		
-		return mv1;
-
-}
-  
-  @RequestMapping("/catupd")
- 	public ModelAndView catupdate(@RequestParam("id") int cid,@RequestParam("name") String cname ) 
-  {
-	  System.out.println("in controller");
-	  System.out.println(cname);
-	  Category c=new Category();
-	  c.setC_id(cid);
-	  c.setCname(cname);
-      cdao.updateCategory(c);
-      
-      
-      ModelAndView mv1 = new ModelAndView("updatecategory");
-      return mv1;
-  }
  		
   
-  @RequestMapping("/catu")
- 	public ModelAndView catup(@RequestParam("id") int cid ) 
-  {
-	  Category p=new Category();
-	  p=cdao.getcatbyid(cid);
-	  System.err.println(p);
-	  ModelAndView mv1 = new ModelAndView("updatecategory");
-      mv1.addObject("cat",p);
-      return mv1;
-  }
+  
+
+  
  		
 }
 

@@ -11,16 +11,8 @@
 
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">M4MOBILES</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="">Home</a></li>
-    </ul> 
-  </div> 
-</nav>
+<jsp:include page="header.jsp"/>
+
 <div class="container">
   <h2>Login</h2>
   <form action>
