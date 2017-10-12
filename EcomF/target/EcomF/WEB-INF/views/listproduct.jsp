@@ -9,6 +9,19 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+ <style>
+  
+ table, td, th {    
+    border: 1px solid #ddd;
+    text-align: left;
+}
+th, td {
+    padding: 15px;
+}
+  </style>
+  
+  
 </head>
 <body>
 <jsp:include page="header.jsp"/>
@@ -17,16 +30,17 @@
 <table>
 <tr>
 
-<th><li><a href="categoryid?id=${p.id}">${p.name}</a></li></th>
-<th><a href="prou?id=${p.id}"><button type="submit" class="btn btn-info" >Edit</button> </a></th> 
+<th><a href="categoryid?id=${p.id}">${p.name}</a></li></th>
+<th><a href="prou?id=${p.id}"><button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span>Edit</button> </a></th> 
     
     <th><a href="prodel?id=${p.id}">
-    <button type="submit" class="btn btn-info" href="listP">Delete</button> </a></th>
+    <button type="submit" class="btn btn-danger" href="listP"><span class="glyphicon glyphicon-trash"></span>Delete</button> </a></th>
 </tr>  
                        
       
   </table>
   </c:forEach>
 
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

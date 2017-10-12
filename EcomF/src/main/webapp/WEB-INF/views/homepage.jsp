@@ -34,15 +34,15 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="resources/images/android.jpg" alt="Los Angeles" style="width:100%;">
+        <img src="resources/images/android.jpg" alt="Los Angeles" style="height:500px; width:100%;">
       </div>
 
       <div class="item">
-        <img src="resources/images/iphone8.jpg" alt="Chicago" style="width:100%;">
+        <img src="resources/images/iphone8.jpg" alt="Chicago" style="height:500px; width:100%;">
       </div>
     
       <div class="item">
-        <img src="resources/images/lumia.jpg" alt="New york" style="width:100%;">
+        <img src="resources/images/lumia.jpg" alt="New york" style="height:500px; width:100%;">
       </div>
     </div>
 
@@ -57,6 +57,11 @@
     </a>
   </div>
 </div>
-<%@ include file = "footer.jsp" %>
+
+<br>
+<br>
+<br>
+<br>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

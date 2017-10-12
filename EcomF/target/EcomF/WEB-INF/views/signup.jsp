@@ -38,5 +38,6 @@
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </div>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

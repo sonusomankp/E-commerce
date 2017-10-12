@@ -45,13 +45,14 @@ public class UserController {
 	@RequestMapping("/up")
 	public ModelAndView up(@RequestParam("name") String uname ,@RequestParam("email") String uemail,@RequestParam("pwd") String pass,@RequestParam("no") long no) {
 		System.out.println("in controller");
-		System.out.println(uname+uemail+pass+no);
+		
 		User p=new User();
 		
-		p.setUname(uname);
-		p.setUemail(uemail);
-		p.setUmobno(no);
-		p.setUpass(pass);
+	    p.setUname(uname);
+	    p.setUemail(uemail);
+	    p.setUpass(pass);
+	    p.setUmob(no);
+	    p.setRole("USER ROLE");
 		udao.saveUser(p);
 	
 		ModelAndView mv1 = new ModelAndView("signup");

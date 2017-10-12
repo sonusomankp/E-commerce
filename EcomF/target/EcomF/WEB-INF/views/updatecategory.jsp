@@ -8,18 +8,29 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+ table, td, th {    
+    border: 1px solid #ddd;
+    text-align: left;
+}
+th, td {
+    padding: 15px;
+}
+</style>
+
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-
+<h4>Category update</h4>
 <form action="catupd">
 <table>
 <tr>
   <td>category id: </td> <td><input type="text" name="id" value="${cat.c_id}"> </td> </tr>
  <tr> <td> category name:</td> <td> <input type="text" name="name" value="${cat.cname}"></td></tr>
-  <tr> <td><input type="submit" value="Submit form"></td></tr>
+  <tr> <td><input  class="btn btn-success" type="submit" value="Update"></td></tr>
   </table>
 </form>
 
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

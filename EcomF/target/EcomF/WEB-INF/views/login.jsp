@@ -15,14 +15,14 @@
 
 <div class="container">
   <h2>Login</h2>
-  <form action>
+  <form action="j_spring_security_check" method="post">
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="j_username">
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="j_password">
     </div>
     <div class="checkbox">
       <label><input type="checkbox" name="remember"> Remember me</label>
@@ -31,6 +31,6 @@
   </form>
 </div>
 
-
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

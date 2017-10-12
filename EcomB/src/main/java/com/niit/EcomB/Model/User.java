@@ -24,17 +24,20 @@ public class User implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	@Column(name="User_name")
-	private String Uname;
+	@Column(name="UNAME")
+	private String uname;
 	
-	@Column(name="User_email")
-	private String Uemail;
+	@Column(name="UEMAIL")
+	private String uemail;
 	
-	@Column(name="User_mobno")
-	private long Umobno;
+	@Column(name="UMOB")
+	private long umob;
 	
-	@Column(name="User_paas")
-	private String Upass;
+	@Column(name="UPASSWORD")
+	private String upass;
+	
+	@Column(name="ROLE")
+	private String role;
 
 	public int getId() {
 		return id;
@@ -45,38 +48,46 @@ public class User implements Serializable {
 	}
 
 	public String getUname() {
-		return Uname;
+		return uname;
 	}
 
 	public void setUname(String uname) {
-		Uname = uname;
+		this.uname = uname;
 	}
 
 	public String getUemail() {
-		return Uemail;
+		return uemail;
 	}
 
 	public void setUemail(String uemail) {
-		Uemail = uemail;
+		this.uemail = uemail;
 	}
 
-	public long getUmobno() {
-		return Umobno;
+	public long getUmob() {
+		return umob;
 	}
 
-	public void setUmobno(long umobno) {
-		Umobno = umobno;
+	public void setUmob(long umob) {
+		this.umob = umob;
 	}
 
 	public String getUpass() {
-		return Upass;
+		return upass;
 	}
 
 	public void setUpass(String upass) {
-		Upass = upass;
+		this.upass = upass;
 	}
 
-	
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+
 	
 	
 }

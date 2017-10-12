@@ -9,17 +9,29 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+ table, td, th {    
+    border: 1px solid #ddd;
+    text-align: left;
+}
+th, td {
+    padding: 15px;
+}
+</style>
+
 
 </head>
 <body>
 <jsp:include page="header.jsp"/>
 
+<h4>Product update</h4>
+
 <form action="proupd">
 <table>
 <tr>
-  <td>product id: </td> <td><input type="text" name="id" value="${prod.id}"> </td> </tr>
- <tr> <td> product name:</td> <td> <input type="text" name="name" value="${prod.name}"></td></tr>
- <tr> <td> product short desc:</td> <td> <input type="text" name="sdes" value="${prod.shortDescrption}"></td></tr>
+  <td>product id: </td> <td><input type="text" name="id" value="${sup.id}"> </td> </tr> 
+ <tr> <td> product name:</td> <td> <input type="text" name="name" value="${sup.name}"></td></tr>
+ <tr> <td> product short desc:</td> <td> <input type="text" name="sdes" value="${sup.shortDescrption}"></td></tr>
  
   <tr> <td>category: </td> <td> <select name="ca">
      <option value="volvo">Select Category</option>
@@ -46,10 +58,11 @@
  
  
  
- <tr> <td> product price:</td> <td> <input type="number" name="pric" value="${prod.price}"></td></tr>
- <tr> <td> product stock:</td> <td> <input type="number" name="stoc" value="${prod.stock}"></td></tr>
-  <tr> <td><input type="submit" value="Submit form"></td></tr>
+ <tr> <td> product price:</td> <td> <input type="number" name="pric" value="${sup.price}"></td></tr>
+ <tr> <td> product stock:</td> <td> <input type="number" name="stoc" value="${sup.stock}"></td></tr>
+  <tr> <td><input class="btn btn-success" type="submit" value="Update"></td></tr>
   </table>
 </form>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

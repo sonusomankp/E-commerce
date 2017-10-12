@@ -42,7 +42,9 @@ public class Product implements Serializable {
 	private String img;
 	
 	
+	
    
+	
 	@ManyToOne
     @JoinColumn(name="c_id",insertable=true,updatable=true,nullable=false)
     private Category category;
@@ -102,6 +104,8 @@ public class Product implements Serializable {
 			this.img = img;
 		}
     
+		
+		
 }
 
 	

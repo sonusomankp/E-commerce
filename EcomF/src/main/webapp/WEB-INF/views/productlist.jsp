@@ -79,7 +79,7 @@
 <a href="${designate.id}">
         <div class="item  col-xs-4 col-lg-4">
             <div class="thumbnail">
-              <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+              <img class="group list-group-image" src="resources/proimages/${designate.img}" style="width:170px;height:180px; alt="" />
                 <div class="caption">
                    <h4 class="group inner list-group-item-heading">
                         ${designate.name}</h4>
@@ -91,7 +91,7 @@
                                 ${designate.price}</p>
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                            <a class="btn btn-success" href="#">Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -103,5 +103,6 @@
     </div>
 </div>
 
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

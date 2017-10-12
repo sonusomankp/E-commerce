@@ -141,7 +141,7 @@ public class AdminController {
 		
 		
 		pdao.saveProduct(pr);
-		ModelAndView mv1 = new ModelAndView("admin");
+		ModelAndView mv1 = new ModelAndView("redirect:/Admin");
 		
 		return mv1;
 	}
