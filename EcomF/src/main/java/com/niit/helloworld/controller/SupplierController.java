@@ -41,6 +41,8 @@ public class SupplierController {
 	@Autowired
 	ProductDao pdao;
 	
+	
+	//list supplier
 	@RequestMapping("/listS")
 	public ModelAndView listS()
 	{
@@ -54,6 +56,7 @@ public class SupplierController {
 		return mv;
 	}
 	
+	//delete supplier
 	@RequestMapping("/supdel")
 	public ModelAndView supdelete(@RequestParam("id") int sup) {
 		System.out.println("in contoller"+sup);
@@ -73,6 +76,8 @@ public class SupplierController {
 		return mv1;
 		
 	}
+	
+	//supplier update
 	 @RequestMapping("/supupd")
 		public ModelAndView supupdate(@RequestParam("id") int sid,@RequestParam("name") String sname,@RequestParam("sad") String sadd ) 
 	{
@@ -90,6 +95,8 @@ public class SupplierController {
 	    return mv1;
 	}
 	  
+	 
+	 //supplier update page
 	  @RequestMapping("/supu")
 		public ModelAndView supup(@RequestParam("id") int sid ) 
 	{

@@ -41,6 +41,10 @@ public class CategoryController {
 	
 	@Autowired
 	ProductDao pdao;
+
+	
+	
+	//	category list
 	
 	@RequestMapping("/listC")
 	public ModelAndView listC()
@@ -54,6 +58,8 @@ public class CategoryController {
 	
 		return mv;
 	}
+	
+//	category delete
 	
 	@RequestMapping("/catdel")
 	public ModelAndView catdelete(@RequestParam("id") int cad) {
@@ -76,7 +82,8 @@ public class CategoryController {
 	}
 	
 	
-	  
+//	  category update
+	
 	  @RequestMapping("/catupd")
 	 	public ModelAndView catupdate(@RequestParam("id") int cid,@RequestParam("name") String cname ) 
 	  {
@@ -92,6 +99,7 @@ public class CategoryController {
 	      return mv1;
 	  }
 	 		
+//	category update page 
 	  
 	  @RequestMapping("/catu")
 	 	public ModelAndView catup(@RequestParam("id") int cid ) 

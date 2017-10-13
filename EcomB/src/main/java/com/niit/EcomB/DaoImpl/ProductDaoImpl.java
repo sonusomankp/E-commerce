@@ -31,6 +31,7 @@ public class ProductDaoImpl implements ProductDao{
 	}
 
 
+//	save product
 	public void saveProduct(Product product) {
 		Session ssn=sessionFactory.openSession();
 		Transaction t=ssn.getTransaction();
@@ -40,6 +41,9 @@ public class ProductDaoImpl implements ProductDao{
 		ssn.close();
 		
 	}
+	
+	
+//	get product id
 	public ArrayList<Product> getprbyid(int id)
 	{
 		Session ssn=sessionFactory.openSession();
@@ -53,6 +57,9 @@ public class ProductDaoImpl implements ProductDao{
 		return cat;
 		
 	}
+	
+	
+//	get all products
 	
 	public ArrayList<Product> getallproducts() {
 		Session ssn=sessionFactory.openSession();
@@ -71,6 +78,8 @@ public class ProductDaoImpl implements ProductDao{
 
 		}
 	
+	//delete product
+	
 	public Product deleteProduct(int id) {
 		Session ssn=sessionFactory.openSession();
 		Transaction t=ssn.getTransaction();
@@ -84,6 +93,9 @@ public class ProductDaoImpl implements ProductDao{
 		return i;
 			}
 	
+	
+	//update product list	
+	
 	public void updateProduct(Product p) {
 		Session ssn=sessionFactory.openSession();
 		Transaction t=ssn.getTransaction();
@@ -93,6 +105,9 @@ public class ProductDaoImpl implements ProductDao{
 		ssn.close();
 		
 	}
+	
+	
+	//get product id	
 	
 	public Product getprobyid(int id) {
 		Session ssn=sessionFactory.openSession();

@@ -54,6 +54,8 @@ public class HelloWorldController {
 		ModelAndView mv = new ModelAndView("homepage");
 		return mv;
 	}
+	
+	//home page
 	@RequestMapping("/")
 	public ModelAndView index()
 	{
@@ -69,20 +71,33 @@ public class HelloWorldController {
 		System.out.println("after adding object");
 	    return mv;
 	}
+	
+	//login
 	@RequestMapping("/in")
-	public String login()
+	public ModelAndView login()
 	{
+		ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
+		ModelAndView mv = new ModelAndView("login");
+		mv.addObject("cate",cat);
+		return mv;
 		
-		return "login";
 	}
+
+	
+	//	sign up
+	
 	@RequestMapping("/signUp")
-	public String signUp()
+	public ModelAndView signup()
 	{
+		ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
+		ModelAndView mv = new ModelAndView("signup");
+		mv.addObject("cate",cat);
+		return mv;
 		
-		return "signup";
 	}
 	
 	
+//	cart
 	@RequestMapping("/bas")
 	public String bask()
 	{

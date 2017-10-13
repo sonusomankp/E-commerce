@@ -41,7 +41,7 @@ public class UserController {
 	@Autowired
 	ProductDao pdao;
 	
-	
+	// save user (sign up)
 	@RequestMapping("/up")
 	public ModelAndView up(@RequestParam("name") String uname ,@RequestParam("email") String uemail,@RequestParam("pwd") String pass,@RequestParam("no") long no) {
 		System.out.println("in controller");

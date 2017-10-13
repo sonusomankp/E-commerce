@@ -43,7 +43,7 @@ public class ProductController {
 	ProductDao pdao;
 	
 	
-	
+	//product list
 	@RequestMapping("/listP")
 	public ModelAndView listP()
 	{
@@ -56,6 +56,8 @@ public class ProductController {
 	
 		return mv;
 	}
+	
+	//product delete
 	 @RequestMapping("/prodel")
 		public ModelAndView prodelete(@RequestParam("id") int prod) {
 			System.out.println("in contoller"+prod);
@@ -77,7 +79,7 @@ public class ProductController {
 	}
 	 
 	 
-	 
+	 //product update
 	 @RequestMapping("/proupd")
 		public ModelAndView proupdate(@RequestParam("id") int id,@RequestParam("name") String name ,@RequestParam("sdes") String shor,@RequestParam("pric") int price,@RequestParam("stoc") int stock,@RequestParam("ca") int categ,@RequestParam("su") int suppli ) 
 	{
@@ -104,6 +106,7 @@ public class ProductController {
 	    return mv1;
 	}
 	  
+	 //product update page
 	  @RequestMapping("/prou")
 		public ModelAndView proup(@RequestParam("id") int id ) 
 	{

@@ -79,7 +79,7 @@
 <a href="${designate.id}">
         <div class="item  col-xs-4 col-lg-4">
             <div class="thumbnail">
-              <img class="group list-group-image" src="resources/proimages/${designate.img}" style="width:170px;height:180px; alt="" />
+              <img class="group list-group-image" src="${pageContext.request.contextPath}/resources/proimages/${designate.img}" style="width:170px;height:180px; alt="" />
                 <div class="caption">
                    <h4 class="group inner list-group-item-heading">
                         ${designate.name}</h4>
@@ -92,6 +92,7 @@
                         </div>
                         <div class="col-xs-12 col-md-6">
                             <a class="btn btn-success" href="#">Add to cart</a>
+                            <a class="btn btn-success" href="#">Buy now</a>
                         </div>
                     </div>
                 </div>

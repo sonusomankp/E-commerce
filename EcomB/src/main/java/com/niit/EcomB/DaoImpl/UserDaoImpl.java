@@ -16,7 +16,7 @@ import com.niit.EcomB.Dao.UserDao;
 			this.sessionFactory=sessionfactory;
 		}
 
-	
+//	save user
 		public void saveUser(User user) {
 			Session ssn=sessionFactory.openSession();
 			Transaction t=ssn.getTransaction();

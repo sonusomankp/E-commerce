@@ -26,13 +26,15 @@
 		</listener-class>
 	</listener>
 	
+	
+<!--spring security -->
+
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/dispatcher-servlet.xml,/WEB-INF/spring-security.xml</param-value>
 	</context-param>
 	
 
-<!--spring security -->
 
 <filter>
 		<filter-name>springSecurityFilterChain</filter-name>

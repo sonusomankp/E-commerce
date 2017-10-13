@@ -49,6 +49,7 @@ public class AdminController {
 	ProductDao pdao;
 	
 	
+//	admin page
 	
 	@RequestMapping("/Admin")
 	public ModelAndView Admin()
@@ -68,6 +69,8 @@ public class AdminController {
 	}
 	
 	
+//	saving supplier
+	
 	@RequestMapping("/supp")
 	public ModelAndView supp(@RequestParam("dtype") String sname,@RequestParam("psw") String sadd) {
 		System.out.println("in controller");
@@ -81,6 +84,8 @@ public class AdminController {
 		return mv1;
 	}
 	
+	
+//	saving category
 	
 	@RequestMapping("/cate")
 	public ModelAndView cate(@RequestParam("psw") String cname) {
@@ -98,6 +103,7 @@ public class AdminController {
 	}
 	
 	
+//	 saving product
 	
 	@RequestMapping(value="/pro",method=RequestMethod.POST)
 	public ModelAndView pro(@RequestParam("name") String name ,@RequestParam("sdes") String shor,@RequestParam("pric") int price,@RequestParam("stoc") int stock,@RequestParam("ca") int categ,@RequestParam("su") int suppli,@RequestParam("img") MultipartFile file) {
@@ -146,7 +152,7 @@ public class AdminController {
 		return mv1;
 	}
 	
-	
+	// product list
 	@RequestMapping("/categoryid")
 	public ModelAndView productlist(@RequestParam("id") int ca) {
 		System.out.println("in contoller"+ca);
@@ -158,7 +164,8 @@ public class AdminController {
 		mv1.addObject("pros",p1);
 		
 		
-		
+		ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
+		mv1.addObject("cate",cat);
 		
 		
 		return mv1;

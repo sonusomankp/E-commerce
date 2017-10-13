@@ -92,6 +92,7 @@
                         </div>
                         <div class="col-xs-12 col-md-6">
                             <a class="btn btn-success" href="#">Add to cart</a>
+                            <a class="btn btn-success" href="#">Buy now</a>
                         </div>
                     </div>
                 </div>

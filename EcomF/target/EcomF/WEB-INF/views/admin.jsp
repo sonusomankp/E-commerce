@@ -70,6 +70,7 @@
     <button type="submit" class="btn btn-default" href="Admin">Save</button>
    </form> </div>
    
+   
   
     
     
@@ -118,6 +119,10 @@
     
 
   </div>
+  <br>
+   <br>
+   <br>
+   <br>
 <jsp:include page="footer.jsp"/>
 </body>
 </html>

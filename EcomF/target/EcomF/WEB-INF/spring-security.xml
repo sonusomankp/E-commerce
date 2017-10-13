@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+
 
 <beans	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans.xsd 
@@ -38,8 +38,8 @@
 		<security:authentication-provider>
 			<security:jdbc-user-service
 				data-source-ref="datasource"
-				users-by-username-query="SELECT uemail, upass, 'true' as enabled FROM User WHERE uemail = ?"
-				authorities-by-username-query="SELECT uemail, role From User WHERE uemail = ?" />
+				users-by-username-query="SELECT UEMAIL, UPASSWORD, 'true' as enabled FROM USER WHERE UEMAIL = ?"
+				authorities-by-username-query="SELECT UEMAIL, ROLE From USER WHERE UEMAIL = ?" />
 		</security:authentication-provider>
 	</security:authentication-manager>
 </beans>
