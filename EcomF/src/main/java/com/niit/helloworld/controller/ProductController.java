@@ -127,6 +127,28 @@ public class ProductController {
 		  mv1.addObject("cat",ss);
 	      return mv1;
 	}
+	  
+	  //product update page
+	  @RequestMapping("/prou1")
+		public ModelAndView proup1(@RequestParam("id") int id ) 
+	{
+		  Product p=new Product();
+		  p=pdao.getprobyid(id);
+		  System.out.println("prou");
+		  
+	   
+		  ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
+		  ArrayList<Supplier> ss= (ArrayList<Supplier>)sdao.getallsuppliers();
+		  
+		    
+			
+		  ModelAndView mv1 = new ModelAndView("productlist1");
+		  
+		  mv1.addObject("sup",p);
+		  mv1.addObject("catego",cat);
+		  mv1.addObject("cat",ss);
+	      return mv1;
+	}
 
 
 }

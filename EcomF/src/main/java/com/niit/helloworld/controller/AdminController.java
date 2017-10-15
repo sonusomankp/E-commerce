@@ -160,7 +160,7 @@ public class AdminController {
 		p1=pdao.getprbyid(ca);
 		
 		
-		ModelAndView mv1 = new ModelAndView("productlist");
+		ModelAndView mv1 = new ModelAndView("productlist2");
 		mv1.addObject("pros",p1);
 		
 		
@@ -171,5 +171,26 @@ public class AdminController {
 		return mv1;
 		
 	}
+	
+	
+	// product list
+		@RequestMapping("/categoryid1")
+		public ModelAndView productlist1(@RequestParam("id") int ca) {
+			System.out.println("in contoller"+ca);
+			ArrayList<Product> p1=new ArrayList<Product>();
+			p1=pdao.getprbyid(ca);
+			
+			
+			ModelAndView mv1 = new ModelAndView("productlist1");
+			mv1.addObject("pros",p1);
+			
+			
+			ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
+			mv1.addObject("cate",cat);
+			
+			
+			return mv1;
+			
+		}
 	
 }

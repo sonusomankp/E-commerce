@@ -89,9 +89,10 @@
                         <div class="col-xs-12 col-md-6">
                            <p class="lead">
                                 ${designate.price}</p>
+                                
                         </div>
                         <div class="col-xs-12 col-md-6">
-                            <a class="btn btn-success" href="#">Add to cart</a>
+                            <a class="btn btn-success" href="prou1?id=${designate.id}">Add to cart</a>
                             <a class="btn btn-success" href="#">Buy now</a>
                         </div>
                     </div>

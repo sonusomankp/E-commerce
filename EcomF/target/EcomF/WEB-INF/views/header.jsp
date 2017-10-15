@@ -4,7 +4,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">M4MOBILES</a>
+      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-globe"></span>M4MOBILES</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="">Home</a></li>
@@ -16,7 +16,7 @@
       </c:if> 
              <c:if test="${pageContext.request.userPrincipal.name  != 'admin123@gmail.com'}">
       
-      <li class="active"><a href="bas">Cart</a></li>
+      <li class="active"><a href="bas"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
     
     <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories
