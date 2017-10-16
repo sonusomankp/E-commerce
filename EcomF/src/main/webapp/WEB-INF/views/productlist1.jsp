@@ -14,11 +14,11 @@
 <style>
 
 body {
-  font-family: 'open sans';
+
   overflow-x: hidden; }
 
 img {
-  max-width: 100%; }
+  max-width: 80%; }
 
 .preview {
   display: -webkit-box;
@@ -212,13 +212,13 @@ img {
 							<span class="review-no">41 reviews</span>
 						</div>
 						<p class="product-description"> ${sup.shortDescrption}</p>
-						<h4 class="price">current price: <span> ${sup.price} &#8377;</span></h4>
+						<h4 class="price">PRICE: <span>   &#8377; ${sup.price}</span></h4>
 						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
-						<h5 class="sizes">sizes:
-							<span class="size" data-toggle="tooltip" title="small">${sup.stock}</span>
+						<h5 class="sizes">STOCK:
+							<span class="stock" data-toggle="tooltip" title="small">${sup.stock}</span>
 							
 						</h5>
-					<button class="add-to-cart btn btn-success" type="button">add to cart</button>
+					<a href="cart?id=${sup.id}"><button class="add-to-cart btn btn-default" type="button">Add to cart</button></a>
 							
 						
 							

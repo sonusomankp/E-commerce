@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="EcomB">
         <wb-resource deploy-path="/" source-path="/src/main/java"/>
+        <dependent-module archiveName="EcomF.war" deploy-path="/" handle="module:/resource/EcomF/EcomF">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>

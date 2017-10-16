@@ -27,7 +27,7 @@
 <div class="container">
     <div class="row">
      <c:forEach items="${pros}" var="designate"  varStatus="loop">
-<a href="${designate.id}">
+       <a href="${designate.id}">
     	<div class="col-md-12">
 			<div class="col-sm-6 col-md-4">
 				<div class="thumbnail" >
@@ -43,6 +43,7 @@
 								<label>${designate.price}</label></h3>
 							</div>
 						</div>
+			
 						<p>${designate.shortDescrption}</p>
 						<div class="row">
 							<div class="col-md-6">
@@ -52,10 +53,11 @@
 								<a href="prou1?id=${designate.id}"" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Quick View</a></div>
 						</div>
 
-						<p> </p>
+					
 					</div>
 				</div>
 			</div>
+			
 				</c:forEach>
 
 </body>

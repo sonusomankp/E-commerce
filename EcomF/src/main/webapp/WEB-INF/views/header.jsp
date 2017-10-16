@@ -16,7 +16,7 @@
       </c:if> 
              <c:if test="${pageContext.request.userPrincipal.name  != 'admin123@gmail.com'}">
       
-      <li class="active"><a href="bas"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
+      <li class="active"><a href="car"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
     
     <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories

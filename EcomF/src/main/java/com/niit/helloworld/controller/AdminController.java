@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,10 +16,12 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.EcomB.DaoImpl.UserDaoImpl;
+import com.niit.EcomB.Dao.CartDao;
 import com.niit.EcomB.Dao.CategoryDao;
 import com.niit.EcomB.Dao.ProductDao;
 import com.niit.EcomB.Dao.SupplierDao;
 import com.niit.EcomB.Dao.UserDao;
+import com.niit.EcomB.Model.Cart;
 import com.niit.EcomB.Model.Category;
 import com.niit.EcomB.Model.Product;
 import com.niit.EcomB.Model.Supplier;
@@ -47,6 +50,9 @@ public class AdminController {
 
 	@Autowired
 	ProductDao pdao;
+	
+	@Autowired
+	CartDao crdao;
 	
 	
 //	admin page
@@ -192,5 +198,7 @@ public class AdminController {
 			return mv1;
 			
 		}
+		
+	
 	
 }
