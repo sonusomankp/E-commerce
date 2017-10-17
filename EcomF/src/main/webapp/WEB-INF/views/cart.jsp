@@ -75,12 +75,12 @@
 							<td data-th="Price">${c.price}</td>
 							<td></td>
 							<td data-th="Quantity">
-								<input type="number" class="form-control text-center" value="${c.quantity}">
+								<h5>${c.quantity}</h5>
 							</td>
-							<td class="actions" data-th="">
-								<a href="cartdel?prid=${c.cartid}"></a><button class="btn btn-danger btn-sm">Delete</button></a>
-								<a href="cartdel?prid=${c.product}"></a><button class="btn btn-success btn-sm">Update</button></a>						
-							</td>
+								
+								<td><a href="cartdel?prid=${c.cartid}" class="btn btn-danger">Delete</a></td>
+								<td><a href="cartup?cartid=${c.cartid}" class="btn btn-success">Update</a></td>
+						
 							
 						</tr></c:forEach>
 					</tbody>
@@ -89,8 +89,8 @@
 						<tr>
 							<td><a href="#" class="btn btn-warning"><i class=" glyphicon glyphicon-shopping-cart"></i> Continue Shopping</a></td>
 							<td colspan="2" class="hidden-xs"></td>
-							<td class="hidden-xs text-center"><strong>Total:$${t}</strong></td>
-							<td><a href="#" class="btn btn-success btn-block"><i class=" glyphicon glyphicon-log-out"></i> Checkout</a></td>
+							<td class="hidden-xs text-center"><strong>Total:${t}</strong></td>
+							<td><a href="cartdel?prid=${c.cartid}" class="btn btn-success btn-block"><i class=" glyphicon glyphicon-log-out"></i> Checkout</a></td>
 						</tr>
 					</tfoot>
 				</table>

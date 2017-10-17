@@ -173,5 +173,54 @@ int count=0,cartid=0;
 		mv1.addObject("t",total);
 		return mv1;
 }
+	
+	//redirecting to cart update page
+	@RequestMapping("/cartup")
+		public ModelAndView cartupdate(@RequestParam("cartid") int cartid) {
+			
+			ModelAndView mv1 = new ModelAndView("updatecart");
+			ArrayList<Category> l=(ArrayList<Category>)cdao.getallcategories();
+			mv1.addObject("cate",l);
+			Cart c= new Cart();
+			c=crdao.getcartbyid(cartid);
+			mv1.addObject("ca",c);
+			return mv1;
+	}
+
+	//cart update 
+	@RequestMapping("/cartupdate")
+	public ModelAndView cart(@RequestParam("id") int catid, @RequestParam("quantity") int quantity) {
+		ModelAndView mv1 = new ModelAndView("cart");
+		ArrayList<Category> l=(ArrayList<Category>)cdao.getallcategories();
+		mv1.addObject("cate",l);
+		Cart c= new Cart();
+		
+		String Username=SecurityContextHolder.getContext().getAuthentication().getName();
+		c.setUsername(Username);
+		c.setQuantity(quantity);
+		Product pr=new Product();
+		pr=crdao.getprbyid(catid);
+		c.setProduct(pr);
+		c.setPrice(pr.getPrice());
+		c.setCartid(catid);
+		
+		//c.getStatus();
+		
+		crdao.updateCart(c);
+		ArrayList<Cart> ll=(ArrayList<Cart>)crdao.getcartbyusernmae(Username);
+		mv1.addObject("ca",ll);
+		
+		
+		int total=0;
+		for(Cart cart:ll)
+		{
+		int sum=cart.getPrice()*cart.getQuantity();
+		total=total+sum;	
+		}
+		
+		mv1.addObject("t",total);
+		return mv1;
+	}
+
 
 }
