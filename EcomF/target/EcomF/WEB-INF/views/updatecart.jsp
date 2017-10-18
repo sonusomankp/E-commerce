@@ -78,11 +78,14 @@
 							<td></td>
 							
 							<td data-th="Quantity">
-							    <form action="cartupdate">
-							    <input type="hidden"  name="id" value=${ca.cartid}>
-								<input type="number" name="quantity" value=${ca.quantity}>
-								<td><input  class="btn btn-success" type="submit" value="Update"></td>
-								</form>
+							    
+								
+								<form action="cartupdate">
+							 <input id="prodId" name="cid" type="hidden" value="${ca.cartid}">
+								<input type="number" class="form-control text-center" value="${ca.quantity }" name="quantity">
+							    <input id="submit" class="btn btn-info btn-md" name="submit" type="submit" value="UPDATE" style="width:100%">
+							</form>
+								
 							</td>
 							
 								

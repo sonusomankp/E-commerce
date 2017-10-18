@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -78,11 +79,14 @@
 							<td></td>
 							
 							<td data-th="Quantity">
-							    <form action="cartupdate">
-							    <input type="hidden"  name="id" value=${ca.cartid}>
+							    <form action = "cartupdate">
+							    <input type="hidden"  name="cid" value=${ca.cartid}>
 								<input type="number" name="quantity" value=${ca.quantity}>
-								<td><input  class="btn btn-success" type="submit" value="Update"></td>
+								<td><input id="submit"  class="btn btn-success" type="submit" value="Update"></td>
 								</form>
+								
+				
+								
 							</td>
 							
 								
@@ -96,6 +100,6 @@
 				</table>
 </div>
 <jsp:include page="footer.jsp"/>
-</form>
+
 </body>
 </html>
