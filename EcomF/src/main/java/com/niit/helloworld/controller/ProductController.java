@@ -44,7 +44,7 @@ public class ProductController {
 	
 	
 	//product list
-	@RequestMapping("/listP")
+	@RequestMapping("/admin/listP")
 	public ModelAndView listP()
 	{
 
@@ -58,7 +58,7 @@ public class ProductController {
 	}
 	
 	//product delete
-	 @RequestMapping("/prodel")
+	 @RequestMapping("/admin/prodel")
 		public ModelAndView prodelete(@RequestParam("id") int prod) {
 			System.out.println("in contoller"+prod);
 			ArrayList<Product> s = new ArrayList<Product>();
@@ -80,7 +80,7 @@ public class ProductController {
 	 
 	 
 	 //product update
-	 @RequestMapping("/proupd")
+	 @RequestMapping("/admin/proupd")
 		public ModelAndView proupdate(@RequestParam("id") int id,@RequestParam("name") String name ,@RequestParam("sdes") String shor,@RequestParam("pric") int price,@RequestParam("stoc") int stock,@RequestParam("ca") int categ,@RequestParam("su") int suppli ) 
 	{
 		  System.out.println("in controller pro");
@@ -106,8 +106,9 @@ public class ProductController {
 	    return mv1;
 	}
 	  
-	 //product update page
-	  @RequestMapping("/prou")
+	 //display product
+	 
+	  @RequestMapping("/admin/prou")
 		public ModelAndView proup(@RequestParam("id") int id ) 
 	{
 		  Product p=new Product();
@@ -128,7 +129,8 @@ public class ProductController {
 	      return mv1;
 	}
 	  
-	  //product update page
+	  //product display
+	  
 	  @RequestMapping("/prou1")
 		public ModelAndView proup1(@RequestParam("id") int id ) 
 	{

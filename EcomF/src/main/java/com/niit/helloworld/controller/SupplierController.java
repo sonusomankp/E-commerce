@@ -43,7 +43,7 @@ public class SupplierController {
 	
 	
 	//list supplier
-	@RequestMapping("/listS")
+	@RequestMapping("/admin/listS")
 	public ModelAndView listS()
 	{
 
@@ -57,7 +57,7 @@ public class SupplierController {
 	}
 	
 	//delete supplier
-	@RequestMapping("/supdel")
+	@RequestMapping("/admin/supdel")
 	public ModelAndView supdelete(@RequestParam("id") int sup) {
 		System.out.println("in contoller"+sup);
 		ArrayList<Supplier> s = new ArrayList<Supplier>();
@@ -78,7 +78,7 @@ public class SupplierController {
 	}
 	
 	//supplier update
-	 @RequestMapping("/supupd")
+	 @RequestMapping("/admin/supupd")
 		public ModelAndView supupdate(@RequestParam("id") int sid,@RequestParam("name") String sname,@RequestParam("sad") String sadd ) 
 	{
 		  System.out.println("in controller sup");
@@ -97,7 +97,7 @@ public class SupplierController {
 	  
 	 
 	 //supplier update page
-	  @RequestMapping("/supu")
+	  @RequestMapping("/admin/supu")
 		public ModelAndView supup(@RequestParam("id") int sid ) 
 	{
 		  Supplier s=new Supplier();

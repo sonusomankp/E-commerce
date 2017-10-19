@@ -46,7 +46,7 @@ public class CategoryController {
 	
 	//	category list
 	
-	@RequestMapping("/listC")
+	@RequestMapping("/admin/listC")
 	public ModelAndView listC()
 	{
 
@@ -61,7 +61,7 @@ public class CategoryController {
 	
 //	category delete
 	
-	@RequestMapping("/catdel")
+	@RequestMapping("/admin/catdel")
 	public ModelAndView catdelete(@RequestParam("id") int cad) {
 		System.out.println("in contoller"+cad);
 		ArrayList<Category> c = new ArrayList<Category>();
@@ -84,7 +84,7 @@ public class CategoryController {
 	
 //	  category update
 	
-	  @RequestMapping("/catupd")
+	  @RequestMapping("/admin/catupd")
 	 	public ModelAndView catupdate(@RequestParam("id") int cid,@RequestParam("name") String cname ) 
 	  {
 		  System.out.println("in controller");
@@ -101,7 +101,7 @@ public class CategoryController {
 	 		
 //	category update page 
 	  
-	  @RequestMapping("/catu")
+	  @RequestMapping("/admin/catu")
 	 	public ModelAndView catup(@RequestParam("id") int cid ) 
 	  {
 		  Category p=new Category();

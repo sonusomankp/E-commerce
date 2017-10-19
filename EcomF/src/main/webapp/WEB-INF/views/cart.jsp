@@ -49,6 +49,7 @@
 <body>
 <form>
 <jsp:include page="header.jsp"/>
+
 <div class="container">
 	<table id="cart" class="table table-hover table-condensed">
     				<thead>
@@ -96,6 +97,7 @@
 					</tfoot>
 				</table>
 </div>
+
 <jsp:include page="footer.jsp"/>
 </form>
 </body>

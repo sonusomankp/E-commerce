@@ -186,7 +186,7 @@ public class AdminController {
 	
 	
 	// product list
-		@RequestMapping("/admin/categoryid1")
+		@RequestMapping("/categoryid1")
 		public ModelAndView productlist1(@RequestParam("id") int ca) {
 			System.out.println("in contoller"+ca);
 			ArrayList<Product> p1=new ArrayList<Product>();
