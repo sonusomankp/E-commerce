@@ -18,6 +18,7 @@ import com.niit.EcomB.Model.Supplier;
 import com.niit.EcomB.Model.User;
 import com.niit.EcomB.Model.Cart;
 import com.niit.EcomB.Model.Category;
+import com.niit.EcomB.Model.Order;
 
 
 
@@ -40,6 +41,7 @@ public class hibernateConfig
 	        sessionBuilder.addAnnotatedClass(Supplier.class);
 	        sessionBuilder.addAnnotatedClass(User.class);
 	        sessionBuilder.addAnnotatedClass(Cart.class);
+	        sessionBuilder.addAnnotatedClass(Order.class);
 	       
 	        
 	        return sessionBuilder.buildSessionFactory();

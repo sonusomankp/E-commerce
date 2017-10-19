@@ -84,10 +84,9 @@ import com.niit.EcomB.Model.Product;
 			Session ssn=sessionFactory.openSession();
 			Transaction t=ssn.getTransaction();
 			t.begin();
+			
 			Query qry1 = ssn.createQuery("update Cart  set quantity="+i+"where CARTID="+cartid);
-			  
-			 
-	        qry1.executeUpdate();
+		    qry1.executeUpdate();
 					         				
 			
 		    t.commit();

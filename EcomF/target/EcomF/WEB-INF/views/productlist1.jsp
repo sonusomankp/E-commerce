@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -122,7 +123,7 @@ img {
   .color:first-of-type {
     margin-left: 20px; }
 
-.add-to-cart, .like {
+.add-to-cart, .buynw {
   background: #ff9f1a;
   padding: 1.2em 1.5em;
   border: none;
@@ -218,8 +219,14 @@ img {
 							<span class="stock" data-toggle="tooltip" title="small">${sup.stock}</span>
 							
 						</h5>
-					<a href="cart?id=${sup.id}"><button class="add-to-cart btn btn-default" type="button">Add to cart</button></a>
-							
+						
+						<c:if test="${pageContext.request.userPrincipal.name == null}">
+						<a href="in"><button class="add-to-cart btn btn-default" type="button">Login</button></a>
+						</c:if>
+					<c:if test="${pageContext.request.userPrincipal.name != null}">
+					<a href="cart?id=${sup.id}"><button class="add-to-cart btn btn-default" type="button">Add to cart</button></a><br>
+					<a href="order"><button class="buynw btn btn-default" type="button">Buy now</button></a>
+						</c:if>	
 						
 							
 					</div>

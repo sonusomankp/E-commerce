@@ -71,6 +71,12 @@ public class HelloWorldController {
 		System.out.println("after adding object");
 	    return mv;
 	}
+	@RequestMapping("/admin")
+	public ModelAndView indexAd()
+	{		
+		ModelAndView mv = new ModelAndView("redirect:/");		
+	    return mv;
+	}
 	
 	//login
 	@RequestMapping("/in")
@@ -105,20 +111,29 @@ public class HelloWorldController {
 		
 		return "Basket";
 	}
-
 	
-
-  
-
-  
-
-  
-  
- 		
-  
-  
-
-  
- 		
+	//error (invalid user)
+	
+    @RequestMapping("/invalid")
+	public ModelAndView invalid()
+	{
+		ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
+		ModelAndView mv = new ModelAndView("error1");
+		mv.addObject("cate",cat);
+		return mv;
+		
+	}
+    
+   //error (authentication failure)
+	
+    @RequestMapping("/error")
+	public ModelAndView authf()
+	{
+		ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
+		ModelAndView mv = new ModelAndView("error2");
+		mv.addObject("cate",cat);
+		return mv;
+		
+	}
 }
 

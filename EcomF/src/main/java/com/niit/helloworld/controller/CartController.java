@@ -121,7 +121,7 @@ int count=0,cartid=0;
 		return mv1;
 	}
 	
-	@RequestMapping("/car")
+	@RequestMapping("car")
 	public ModelAndView car(){
 		
 		ModelAndView mv1 = new ModelAndView("cart");
@@ -155,7 +155,7 @@ int count=0,cartid=0;
 	public ModelAndView cartdelete(@RequestParam("prid") int carid) {
 		
 		crdao.deleteCart(carid);
-		ModelAndView mv1 = new ModelAndView("cart");
+		ModelAndView mv1 = new ModelAndView("redirect:/car");
 		ArrayList<Category> l=(ArrayList<Category>)cdao.getallcategories();
 		mv1.addObject("cate",l);
 		String Username=SecurityContextHolder.getContext().getAuthentication().getName();
@@ -190,7 +190,7 @@ int count=0,cartid=0;
 	
 
 	//cart update 
-		@RequestMapping("/cartupdate1")
+		@RequestMapping("/cartupdate")
 		public ModelAndView cartupda(@RequestParam("cid") int cartid, @RequestParam("quantity") int quantity) {
 			System.out.println(cartid);
 			ModelAndView mv1 = new ModelAndView("cart");
@@ -202,7 +202,7 @@ int count=0,cartid=0;
 			c.setQuantity(quantity);
 			crdao.updatequantity(cartid,quantity);
 			ArrayList<Cart> ll=(ArrayList<Cart>)crdao.getcartbyusernmae(Username);
-			
+			mv1.addObject("ca",ll);
 			
 			
 			int total=0;

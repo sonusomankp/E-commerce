@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,6 +13,7 @@
 
 
   <style>
+<style>
 .table>tbody>tr>td, .table>tfoot>tr>td{
     vertical-align: middle;
 }
@@ -21,10 +23,13 @@
 		display: inline !important;
 	}
 	.actions .btn{
-		width:20%;
+		width:36%;
 		margin:1.5em 0;
 	}
 	
+	.actions .btn-info{
+		float:left;
+	}
 	.actions .btn-danger{
 		float:right;
 	}
@@ -43,62 +48,65 @@
 	table#cart tfoot td .btn{display:block;}
 	
 }
+</style>
   </style>
 
 </head>
 <body>
 
-<form>
-<jsp:include page="header.jsp"/>
+<%@ include file = "header.jsp" %>
+<body>
+
+  
+
 <div class="container">
-	<table id="cart" class="table table-hover table-condensed">
+	<table id="cart"  style="color:black;border-collapse: separate;
+    border-spacing: 10px ;" >
     				<thead>
 						<tr>
 							<th style="width:50%">Product</th>
 							<th style="width:10%">Price</th>
-							<th></th>
-							<th style="width:8%">Quantity</th>
-							<th style="width:22%" class="text-center"></th>
-							<th style="width:10%"></th>
+							<th style="width:22%">Quantity</th>
+							
+							
+							
 						</tr>
 					</thead>
 					<tbody>
+						
 					
 						<tr>
-								
+						
 							<td data-th="Product">
 								<div class="row">
-									<div class="col-sm-2 hidden-xs"><img src="${pageContext.request.contextPath}/resources/proimages/${c.product.img}" alt="..." class="img-responsive"/></div>
+								
+									<div class="col-sm-2 "><img src="${pageContext.request.contextPath}/resources/products/${cartt.product.image}" alt="Chania" width="100" height="100" class="img-responsive"/></div>
 									<div class="col-sm-10">
-										<h4 class="nomargin">${ca.product.name}</h4>
-									</div>
+									 
+										<h4 class="nomargin">${ca.product.name }</h4>
+										<p>
+										</p>	</div>
 								</div>
 							</td>
-							<td data-th="Price">${ca.price}</td>
-							<td></td>
-							
+							<td data-th="Price">${ca.price }</td>
 							<td data-th="Quantity">
-							    
-								
-								<form action="cartupdate">
+							<form action="cartupdate">
 							 <input id="prodId" name="cid" type="hidden" value="${ca.cartid}">
 								<input type="number" class="form-control text-center" value="${ca.quantity }" name="quantity">
 							    <input id="submit" class="btn btn-info btn-md" name="submit" type="submit" value="UPDATE" style="width:100%">
 							</form>
-								
 							</td>
+					
 							
-								
 							
-							
-						
-							
+                                 
 						</tr>
+						
+					
 					</tbody>
 				
 				</table>
 </div>
-<jsp:include page="footer.jsp"/>
-</form>
+<%@ include file = "footer.jsp" %>
 </body>
 </html>

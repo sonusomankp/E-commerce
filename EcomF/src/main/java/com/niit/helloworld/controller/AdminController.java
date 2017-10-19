@@ -57,7 +57,7 @@ public class AdminController {
 	
 //	admin page
 	
-	@RequestMapping("/Admin")
+	@RequestMapping("/admin/Admin")
 	public ModelAndView Admin()
 	{
 
@@ -73,11 +73,19 @@ public class AdminController {
 		mv.addObject("cat",ss);
 		return mv;
 	}
+	@RequestMapping("/Admin")
+	public ModelAndView admin()
+	{
+
+		System.out.println("in controller");
+		ModelAndView mv = new ModelAndView("redirect:/admin/Admin");
+		return mv;
+	}
 	
 	
 //	saving supplier
 	
-	@RequestMapping("/supp")
+	@RequestMapping("/admin/supp")
 	public ModelAndView supp(@RequestParam("dtype") String sname,@RequestParam("psw") String sadd) {
 		System.out.println("in controller");
 		System.out.println(sname+sadd);
@@ -85,15 +93,14 @@ public class AdminController {
 		s.setSname(sname);
 		s.setSaddr(sadd);
 		sdao.saveSupplier(s);
-		ModelAndView mv1 = new ModelAndView("admin");
-		
+		ModelAndView mv1 = new ModelAndView("redirect:/Admin");
 		return mv1;
 	}
 	
 	
 //	saving category
 	
-	@RequestMapping("/cate")
+	@RequestMapping("/admin/cate")
 	public ModelAndView cate(@RequestParam("psw") String cname) {
 		System.out.println("in controller");
 		System.out.println(cname);
@@ -103,15 +110,14 @@ public class AdminController {
 		
 		
 		
-		ModelAndView mv1 = new ModelAndView("admin");
-	
+		ModelAndView mv1 = new ModelAndView("redirect:/Admin");
 		return mv1;
 	}
 	
 	
 //	 saving product
 	
-	@RequestMapping(value="/pro",method=RequestMethod.POST)
+	@RequestMapping(value="/admin/pro",method=RequestMethod.POST)
 	public ModelAndView pro(@RequestParam("name") String name ,@RequestParam("sdes") String shor,@RequestParam("pric") int price,@RequestParam("stoc") int stock,@RequestParam("ca") int categ,@RequestParam("su") int suppli,@RequestParam("img") MultipartFile file) {
 		System.out.println("in controller");
 		System.out.println(name+shor+price+stock+categ+suppli);
@@ -180,7 +186,7 @@ public class AdminController {
 	
 	
 	// product list
-		@RequestMapping("/categoryid1")
+		@RequestMapping("/admin/categoryid1")
 		public ModelAndView productlist1(@RequestParam("id") int ca) {
 			System.out.println("in contoller"+ca);
 			ArrayList<Product> p1=new ArrayList<Product>();

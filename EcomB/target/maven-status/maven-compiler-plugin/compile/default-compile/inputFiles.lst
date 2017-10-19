@@ -1,4 +1,5 @@
 C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\Configuration\hibernateConfig.java
+C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\Dao\OrderDao.java
 C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\Model\Supplier.java
 C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\DaoImpl\CategoryDaolmpl.java
 C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\Model\Product.java
@@ -14,4 +15,6 @@ C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\App.java
 C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\Dao\ProductDao.java
 C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\Dao\SupplierDao.java
 C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\Dao\CartDao.java
+C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\DaoImpl\OrderDaoImpl.java
+C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\Model\Order.java
 C:\Users\SONU\workspace\EcomB\src\main\java\com\niit\EcomB\Dao\UserDao.java
