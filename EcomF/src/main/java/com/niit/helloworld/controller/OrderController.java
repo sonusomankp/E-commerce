@@ -87,5 +87,15 @@ public class OrderController {
 			
 			return mv1;
 		}
-	
+		
+		@RequestMapping("/bill")
+		public ModelAndView billing() {
+			
+			ModelAndView mv1 = new ModelAndView("billing");
+			ArrayList<Category> l=(ArrayList<Category>)cdao.getallcategories();
+			mv1.addObject("cate",l);
+			ArrayList<User> us=(ArrayList<User>)udao.getalluserdetails();
+			mv1.addObject("user",us);
+			return mv1;
+		}
 }
