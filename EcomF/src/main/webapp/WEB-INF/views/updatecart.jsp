@@ -80,7 +80,7 @@
 							<td data-th="Product">
 								<div class="row">
 								
-									<div class="col-sm-2 "><img src="${pageContext.request.contextPath}/resources/products/${cartt.product.image}" alt="Chania" width="100" height="100" class="img-responsive"/></div>
+									<div class="col-sm-2 "><img src="${pageContext.request.contextPath}/resources/proimages/${ca.product.img}" alt="..." class="img-responsive"width="100%" height="100%"/></div>
 									<div class="col-sm-10">
 									 
 										<h4 class="nomargin">${ca.product.name }</h4>
@@ -88,7 +88,7 @@
 										</p>	</div>
 								</div>
 							</td>
-							<td data-th="Price">${ca.price }</td>
+							<td data-th="Price">&#8377; ${ca.price}</td>
 							<td data-th="Quantity">
 							<form action="cartupdate">
 							 <input id="prodId" name="cid" type="hidden" value="${ca.cartid}">

@@ -8,14 +8,20 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<style>
+.center {
+    text-align: center;  
+}
+</style>
 
 </head>
 <body>
 
 <jsp:include page="header.jsp"/>
-<h3>AUTHORISATION FAILURE</h3>
+<div class="center">
+<h2>Oops!</h2>
+<h2><span class="glyphicon glyphicon-ban-circle"></span>AUTHORISATION FAILURE</h2>
 <jsp:include page="footer.jsp"/>
-
+</div>
 </body>
 </html>

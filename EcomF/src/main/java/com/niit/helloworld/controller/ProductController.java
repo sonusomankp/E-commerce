@@ -147,7 +147,7 @@ public class ProductController {
 		  ModelAndView mv1 = new ModelAndView("productlist1");
 		  
 		  mv1.addObject("sup",p);
-		  mv1.addObject("catego",cat);
+		  mv1.addObject("cate",cat);
 		  mv1.addObject("cat",ss);
 	      return mv1;
 	}

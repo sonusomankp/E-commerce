@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -54,7 +55,9 @@ body {
         <div class="row">
           <div class="col-lg-7 col-md-7 col-sm-7">
             <h3>BILLING ADDRESS : </h3>
-            <h5> </h5> 789/90 , Lane Here, New York,
+            <h5></h5>
+            <h5></h5>
+            <h5></h5>
             <br /> United States
           </div>
           <div class="col-lg-5 col-md-5 col-sm-5">

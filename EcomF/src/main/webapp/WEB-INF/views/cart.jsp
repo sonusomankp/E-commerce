@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -12,7 +12,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
-  
+
+.center {
+    text-align: center;  
+    
 .table>tbody>tr>td, .table>tfoot>tr>td{
     vertical-align: middle;
 }
@@ -49,6 +52,13 @@
 <body>
 <form>
 <jsp:include page="header.jsp"/>
+<div class="center">
+<c:if test ="${fn:length(ca) eq 0}">
+<h2>Oops!</h2>
+<h2><span class="glyphicon glyphicon-shopping-cart"></span>Cart is Empty</h2>
+</c:if>
+</div>
+<c:if test ="${fn:length(ca) ge 1}">
 
 <div class="container">
 	<table id="cart" class="table table-hover table-condensed">
@@ -56,8 +66,8 @@
 						<tr>
 							<th style="width:50%">Product</th>
 							<th style="width:10%">Price</th>
-							<th></th>
 							<th style="width:8%">Quantity</th>
+							<th style="width:8%">Subtotal</th>
 							<th style="width:22%" class="text-center"></th>
 							<th style="width:10%"></th>
 						</tr>
@@ -74,11 +84,17 @@
 									</div>
 								</div>
 							</td>
-							<td data-th="Price">${c.price}</td>
-							<td></td>
+							<td data-th="Price">
+							<h5>${c.price}</h5></td>
+							
 							<td data-th="Quantity">
 								<h5>${c.quantity}</h5>
 							</td>
+							
+							<td data-th="Subtotal">
+								<h5>&#8377; ${c.price * c.quantity}</h5>
+							</td>
+							
 								
 								<td><a href="cartdel?prid=${c.cartid}" class="btn btn-danger">Delete</a></td>
 								<td><a href="cartup?cartid=${c.cartid}" class="btn btn-success">Update</a></td>
@@ -91,12 +107,14 @@
 						<tr>
 							<td><a href="#" class="btn btn-warning"><i class=" glyphicon glyphicon-shopping-cart"></i> Continue Shopping</a></td>
 							<td colspan="2" class="hidden-xs"></td>
-							<td class="hidden-xs text-center"><strong>Total:${t}</strong></td>
+							<td class="hidden-xs text-center"><strong>Total:&#8377;${t}</strong></td>
 							<td><a href="order" class="btn btn-success btn-block"><i class=" glyphicon glyphicon-log-out"></i> Checkout</a></td>
 						</tr>
 					</tfoot>
 				</table>
 </div>
+
+</c:if>
 
 <jsp:include page="footer.jsp"/>
 </form>
