@@ -62,7 +62,7 @@ body {
           </div>
           <div class="col-lg-5 col-md-5 col-sm-5">
             <h3>Client Contact :</h3> Mob: +1-99-88-77-55
-            <br> email: info@domainname.com
+            <br> <h3>email: ${cat.name}</h3>
           </div>
         </div>
         <hr />

@@ -95,7 +95,7 @@ public class CategoryController {
 	      cdao.updateCategory(c);
 	      
 	      
-	      ModelAndView mv1 = new ModelAndView("updatecategory");
+	      ModelAndView mv1 = new ModelAndView("redirect:/admin/listC");
 	      return mv1;
 	  }
 	 		

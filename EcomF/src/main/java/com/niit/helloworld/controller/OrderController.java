@@ -73,20 +73,31 @@ public class OrderController {
 	
 	// save order details
 		@RequestMapping("/orderadd")
-		public ModelAndView up(@RequestParam("name") String uname ,@RequestParam("email") String uemail,@RequestParam("mob") long no,@RequestParam("add") String addr) {
-		
+		public ModelAndView up(@RequestParam("email") String uemail,@RequestParam("mob") long no,@RequestParam("add") String addr) {
+			org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		    String name = auth.getName();
 			Order o=new Order();
 			
-			o.setUsername(uname);
+			o.setUsername(name);
 			o.setEmail(uemail);
 			o.setMobno(no);
 			o.setAddress(addr);
 			
 			ordao.addorder(o);
-		    ModelAndView mv1 = new ModelAndView("billing");
-			
+		    ModelAndView mv1 = new ModelAndView("order1");
+		    
+		
 			return mv1;
 		}
+		
+		
+			
+		    
+			
+		
+		
+			
+		
 		
 	
 		

@@ -77,7 +77,7 @@ form_main {
                 <h4 class="heading"><strong>Shipping </strong>Details <span></span></h4>
                 <div class="form">
                 <form action="orderadd">
-                    Name:<input type="text" required="" placeholder="Enter Name" value="" name="name" class="txt">
+                   Name:<input type="text" required="" placeholder="Enter Name" value="" name="name" class="txt">
                     Email:<input type="text" required="" placeholder="Enter your Email" value="" name="email" class="txt">
                     Mobileno:<input type="text" required="" placeholder="Enter your mobile no" value="" name="mob" class="txt">
                     Address:<textarea placeholder="Enter Address" name="add" type="text" class="txt_3"></textarea>
@@ -85,6 +85,8 @@ form_main {
                 </form>
             </div>
             </div>
+            
+            
            
 </div>
 <jsp:include page="footer.jsp"/>

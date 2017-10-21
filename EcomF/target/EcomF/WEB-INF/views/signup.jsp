@@ -15,7 +15,7 @@
 
 <div class="container">
   <h2>Sign Up</h2>
-  <form action="up">
+  <form action="up" method="post">
     <div class="form-group">
       <label for="name">Name:</label>
       <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" required>
