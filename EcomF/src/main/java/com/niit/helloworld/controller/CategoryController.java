@@ -71,7 +71,7 @@ public class CategoryController {
 		
 		
 		
-		ModelAndView mv1 = new ModelAndView("listcategory");
+		ModelAndView mv1 = new ModelAndView("redirect:/admin/listC");
 		mv1.addObject("pros",c);
 		mv1.addObject("catego",cat);
 		

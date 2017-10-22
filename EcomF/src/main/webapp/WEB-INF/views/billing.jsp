@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,22 +28,22 @@ body {
 </head>
 <body>
 <jsp:include page="header.jsp"/>
+
 <div class="container">
       <div class="col-md-12 text-center">
-        <br />
-        <br />
-        <br />
-        <br />
+
     </div>
 	    <div class="row color-invoice">
       <div class="col-md-12">
         <div class="row">
           <div class="col-lg-7 col-md-7 col-sm-7">
-            <h1>M4MOBILES</h1>
+            <h1><span class="glyphicon glyphicon-globe"></span>M4MOBILES</h1>
             <br />
-            <strong>Email : </strong> M4MOBILES@GMAIL.COM
+         
+            <strong>Email : </strong> m4mobiles@gmail.com
             <br />
-            <strong>Call : </strong> 9846629307
+            <strong>Call : </strong> +91 9846629307
+          
           </div>
           <div class="col-lg-5 col-md-5 col-sm-5">
 
@@ -54,15 +54,23 @@ body {
         <hr />
         <div class="row">
           <div class="col-lg-7 col-md-7 col-sm-7">
+          
             <h3>BILLING ADDRESS : </h3>
-            <h5></h5>
-            <h5></h5>
-            <h5></h5>
-            <br /> United States
+           <c:forEach var="s" items="${su}">
+            <h5>Mob no:${s.mobno}</h5>
+            <h5>Email:${s.email}</h5>
+            <h5>Address:${s.address}</h5>
+            </c:forEach>
+            <br /> 
           </div>
+         
           <div class="col-lg-5 col-md-5 col-sm-5">
-            <h3>Client Contact :</h3> Mob: +1-99-88-77-55
-            <br> <h3>email: ${cat.name}</h3>
+            <h3>SHIPPING ADDRESS:</h3> 
+            <c:forEach var="s" items="${su}">
+            <h5>Mob no:${s.mobno}</h5>
+            <h5>Email:${s.email}</h5>
+            <h5>Address:${s.address}</h5>
+            </c:forEach>
           </div>
         </div>
         <hr />
@@ -78,56 +86,38 @@ body {
               <table class="table table-striped table-bordered">
                 <thead>
                   <tr>
-                    <th>S. No.</th>
-                    <th>Perticulars</th>
-                    <th>Quantity.</th>
-                    <th>Unit Price</th>
+                    <th>Product</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
                     <th>Sub Total</th>
                   </tr>
                 </thead>
                 <tbody>
+                <c:forEach var="c" items="${ca}">
                   <tr>
-                    <td>1</td>
-                    <td>Website Design</td>
-                    <td>1</td>
-                    <td>5000 USD</td>
-                    <td>5000 USD</td>
+                    <td><img src="${pageContext.request.contextPath}/resources/proimages/${c.product.img}" alt="..." class="img-responsive" width="80px" height="50px"/></td>
+                    <td>${c.product.name}</td>
+                    <td>&#8377;${c.price}</td>
+                    <td>${c.quantity}</td>
+                    <td>&#8377;${c.price * c.quantity}</td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Website Development</td>
-                    <td>2</td>
-                    <td>5000 USD</td>
-                    <td>10000 USD</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Customization</td>
-                    <td>1</td>
-                    <td>4000 USD</td>
-                    <td>4000 USD</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Plugin Setup</td>
-                    <td>1</td>
-                    <td>3000 USD</td>
-                    <td>3000 USD</td>
-                  </tr>
+                  </c:forEach>
+                  
                 </tbody>
               </table>
             </div>
             <hr>
             <div>
-              <h4>  Total : 22000 USD </h4>
+              <h4>  Total :&#8377;${t} </h4>
             </div>
             <hr>
             <div>
-              <h4>  Taxes : 4400 USD ( 20 % on Total Bill ) </h4>
+              
             </div>
             <hr>
             <div>
-              <h3>  Bill Amount : 26400 USD </h3>
+              <h3>  Bill Amount :&#8377;${t}  </h3>
             </div>
             <hr />
           </div>
@@ -137,14 +127,14 @@ body {
             <strong> Important: </strong>
             <ol>
               <li>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                After confirmation cash refundable not possible.
 
               </li>
               <li>
-                Nulla eros eros, laoreet non pretium sit amet, efficitur eu magna.
+                Check the items before confirm.
               </li>
               <li>
-                Curabitur efficitur vitae massa quis molestie. Ut quis porttitor justo, sed euismod tortor.
+                Select the mode of payment.
               </li>
             </ol>
           </div>
@@ -152,14 +142,13 @@ body {
         <hr />
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12">
-            <a href="#" class="btn btn-success btn-sm">Print Invoice</a>    
-            <a href="#" class="btn btn-info btn-sm">Download In Pdf</a>
+            <a href="pay" class="btn btn-success btn-sm">Confirm Order</a>    
+            <a href="#" class="btn btn-info btn-sm">Download Receipt</a>
           </div>
         </div>
         
         <hr>
         <div class="row">
-  
 
 </div>
       </div>

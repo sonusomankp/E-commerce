@@ -30,7 +30,7 @@ th, td {
 <table>
 <tr>
 
-<th><a href="categoryid?id=${designatee.s_id}">${designatee.sname}</a></th>
+<th width="110px"><a href="categoryid?id=${designatee.s_id}">${designatee.sname}</a></th>
 <th>
 <a href="supu?id=${designatee.s_id}"><button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span>Edit</button> </a></th> <br>
     

@@ -67,7 +67,7 @@ public class SupplierController {
 		
 		
 		
-		ModelAndView mv1 = new ModelAndView("listsupplier");
+		ModelAndView mv1 = new ModelAndView("redirect:/admin/listS");
 		mv1.addObject("pros",s);
 		mv1.addObject("su",cat);
 		
@@ -91,7 +91,7 @@ public class SupplierController {
 	      sdao.updateSupplier(s);
 	    
 	    
-	    ModelAndView mv1 = new ModelAndView("updatesupplier");
+	    ModelAndView mv1 = new ModelAndView("redirect:/admin/listS");
 	    return mv1;
 	}
 	  

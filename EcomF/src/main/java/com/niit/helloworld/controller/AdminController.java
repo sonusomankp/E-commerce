@@ -172,7 +172,7 @@ public class AdminController {
 		p1=pdao.getprbyid(ca);
 		
 		
-		ModelAndView mv1 = new ModelAndView("productlist2");
+		ModelAndView mv1 = new ModelAndView("productlist");
 		mv1.addObject("pros",p1);
 		
 		

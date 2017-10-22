@@ -13,6 +13,7 @@ import org.hibernate.Query;
 import com.niit.EcomB.Dao.CartDao;
 import com.niit.EcomB.Dao.OrderDao;
 import com.niit.EcomB.Model.Cart;
+import com.niit.EcomB.Model.Category;
 import com.niit.EcomB.Model.Order;
 import com.niit.EcomB.Model.Product;
 
@@ -42,4 +43,15 @@ import com.niit.EcomB.Model.Product;
 			ssn.close();
 		 
 	 }
+	 public ArrayList<Order> getorderbyusername(String Username) {
+		    Session ssn=sessionFactory.openSession();
+			Transaction t=ssn.getTransaction();
+			t.begin();
+			Query q=ssn.createQuery("from Order where USERNAME='"+Username+"'");
+			ArrayList<Order> cat=(ArrayList<Order>)q.list();
+
+	        t.commit();
+	        ssn.close();
+			return cat;
+		}
 	}

@@ -68,7 +68,7 @@ public class ProductController {
 			
 			
 			
-			ModelAndView mv1 = new ModelAndView("listproduct");
+			ModelAndView mv1 = new ModelAndView("redirect:/admin/listP");
 			mv1.addObject("pros",s);
 			mv1.addObject("pr",cat);
 			
@@ -102,7 +102,7 @@ public class ProductController {
 			
 		pdao.updateProduct(p);
 		
-	    ModelAndView mv1 = new ModelAndView("updateproduct");
+	    ModelAndView mv1 = new ModelAndView("redirect:/admin/listP");
 	    return mv1;
 	}
 	  

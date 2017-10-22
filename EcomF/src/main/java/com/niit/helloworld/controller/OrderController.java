@@ -75,30 +75,56 @@ public class OrderController {
 		@RequestMapping("/orderadd")
 		public ModelAndView up(@RequestParam("email") String uemail,@RequestParam("mob") long no,@RequestParam("add") String addr) {
 			org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		    String name = auth.getName();
+		    String Username = auth.getName();
 			Order o=new Order();
 			
-			o.setUsername(name);
+			o.setUsername(Username);
 			o.setEmail(uemail);
 			o.setMobno(no);
 			o.setAddress(addr);
 			
 			ordao.addorder(o);
-		    ModelAndView mv1 = new ModelAndView("order1");
+			
+		    ModelAndView mv1 = new ModelAndView("billing");
 		    
-		
+		    ArrayList<Category> l=(ArrayList<Category>)cdao.getallcategories();
+			mv1.addObject("cate",l);
+		    
+		    
+		    ArrayList<Order> ss=(ArrayList<Order>)ordao.getorderbyusername(Username);
+		    mv1.addObject("su",ss);
+		    
+		    
+		    
+		    ArrayList<Cart> ll=(ArrayList<Cart>)crdao.getcartbyusernmae(Username);
+		    mv1.addObject("ca",ll);
+		  	 
+		    
+		    int total=0;
+			for(Cart cart:ll)
+			{
+			int sum=cart.getPrice()*cart.getQuantity();
+			total=total+sum;	
+			}
+			
+			mv1.addObject("t",total);
 			return mv1;
+		     
+			
 		}
 		
-		
-			
-		    
-			
-		
-		
-			
-		
-		
-	
-		
+		// save order details
+				@RequestMapping("/pay")
+				public ModelAndView pay()
+				{
+				
+					ModelAndView mv1 = new ModelAndView("thankyou");
+					return mv1;
+					
+				}
 }
+		
+		
+		
+			
+
