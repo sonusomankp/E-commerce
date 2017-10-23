@@ -225,7 +225,7 @@ img {
 						</c:if>
 					<c:if test="${pageContext.request.userPrincipal.name != null}">
 					<a href="cart?id=${sup.id}"><button class="add-to-cart btn btn-default" type="button">Add to cart</button></a><br>
-					<a href="order"><button class="buynw btn btn-default" type="button">Buy now</button></a>
+					<a href="buy?id=${sup.id}"><button class="buynw btn btn-default" type="button">Buy now</button></a>
 						</c:if>	
 						
 							

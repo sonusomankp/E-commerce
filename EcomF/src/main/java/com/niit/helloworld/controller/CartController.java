@@ -55,7 +55,7 @@ public class CartController {
 	@Autowired
 	CartDao crdao;
 	
-	@RequestMapping("/cart")
+	@RequestMapping("cart")
 	public ModelAndView addcart(@RequestParam("id") int id)
 	{ 
 		
@@ -103,6 +103,17 @@ int count=0,cartid=0;
 			
 		
 	}
+	
+	//stock
+	
+	Product p = new Product();
+	p=pdao.getprobyid(id);
+	p.setStock(p.getStock()-1);
+	pdao.updateProduct(p);
+	
+	
+	
+	
 		
 		
 		
@@ -154,6 +165,14 @@ int count=0,cartid=0;
 	@RequestMapping("/cartdel")
 	public ModelAndView cartdelete(@RequestParam("prid") int carid) {
 		
+		//stock
+		Cart ss = crdao.getcartbyid(carid);
+		Product p = pdao.getprobyid(ss.getProduct().getId());
+		p.setStock(p.getStock()+(ss.getQuantity()));
+		pdao.updateProduct(p);
+		
+		
+		
 		crdao.deleteCart(carid);
 		ModelAndView mv1 = new ModelAndView("redirect:/car");
 		ArrayList<Category> l=(ArrayList<Category>)cdao.getallcategories();
@@ -191,9 +210,22 @@ int count=0,cartid=0;
 
 	//cart update 
 		@RequestMapping("/cartupdate")
-		public ModelAndView cartupda(@RequestParam("cid") int cartid, @RequestParam("quantity") int quantity) {
+		public ModelAndView cartupda(@RequestParam("cid") int cartid, @RequestParam("quantity") int quantity,@RequestParam("proid") int pid) {
 			System.out.println(cartid);
 			ModelAndView mv1 = new ModelAndView("cart");
+			
+			
+			//stock
+			Cart ss = crdao.getcartbyid(cartid);
+			Product p = pdao.getprobyid(pid);
+			p.setStock(p.getStock()-(quantity-ss.getQuantity()));
+			pdao.updateProduct(p);
+			
+			
+			
+			
+			
+			
 			ArrayList<Category> l=(ArrayList<Category>)cdao.getallcategories();
 			mv1.addObject("cate",l);
 		    Cart c= new Cart();
@@ -204,6 +236,7 @@ int count=0,cartid=0;
 			ArrayList<Cart> ll=(ArrayList<Cart>)crdao.getcartbyusernmae(Username);
 			mv1.addObject("ca",ll);
 			
+		
 			
 			int total=0;
 			for(Cart cart:ll)
@@ -215,5 +248,87 @@ int count=0,cartid=0;
 			mv1.addObject("t",total);
 			return mv1;
 		}
+		
+		
+		@RequestMapping("buy")
+		public ModelAndView buynow(@RequestParam("id") int id)
+		{ 
+			
+			 org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		     String name = auth.getName();
+		     Cart cart=new Cart();
+			
+	int count=0,cartid=0;
+		ArrayList<Cart> car=new ArrayList<Cart>();
+		
+		car=crdao.getcartbyusernmae(name);
+		for(Cart c:car )
+		{
+			Product ppp=c.getProduct();
+			if(ppp.getId()==id)
+			{
+				count=1;
+				cartid=c.getCartid();
+			}
+		}
+		if(count==1)
+		{
+			
+			Cart c=crdao.getcartbyid(cartid);
+			int quantity=c.getQuantity();
+			quantity=quantity+1;
+			crdao.updatequantity(cartid,quantity);
+		}
+		else
+		{
+			cart.setUsername(name);
+	        cart.setQuantity(1);
+			
+			
+			Product p=new Product();
+			p=crdao.getprbyid(id);
+			
+		  cart.setPrice(p.getPrice());
+			
+			
+			cart.setProduct(p);
+			//cart.setStatus("NP");
+			
+			crdao.addcart(cart);
+				
+			
+		}
+		
+		//stock
+		
+		Product p = new Product();
+		p=pdao.getprobyid(id);
+		p.setStock(p.getStock()-1);
+		pdao.updateProduct(p);
+		
+		
+		
+		
+			
+			
+			
+			ModelAndView mv1 = new ModelAndView("redirect:/car");
+			Product ll=new Product();
+			ll=pdao.getprobyid(id);
+			
+			mv1.addObject("sup",ll);
+			
+			
+			ArrayList<Category> cat1=(ArrayList<Category>)cdao.getallcategories();
+			mv1.addObject("cate",cat1);
+			
+		
+		
+			return mv1;
+		}
+		
+		
+		
+		
 
 }

@@ -9,12 +9,12 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style>
+
 <style>
 .btn-product{
 	width: 100%;
 }
-.btn-glyphicon { padding:8px; background:#ffffff; margin-right:4px; }
+.btn-glyphicon { padding:8px; background:#ffffff; margin-right:4px;}
 .icon-btn { padding: 1px 15px 3px 2px; border-radius:50px;}
 
 </style>
@@ -39,7 +39,7 @@
  
                     
                             
-                    <h3 style="margin-top:0px; color:black;">Price: $${p.price}</h3> 
+                    <h3 style="margin-top:0px; color:black;">Price:&#8377;${p.price}</h3> 
                    
                         </div></div>
                         <div class="row">
@@ -48,7 +48,7 @@
                            </div>
                         <c:if test="${pageContext.request.userPrincipal.name  != null}">
                         <div class="col-sm-6">
-                           <a class="btn icon-btn btn-success" href="car?id=${p.id}"><span class="glyphicon btn-glyphicon glyphicon-shopping-cart img-circle text-success"></span> Add to cart</a> 
+                           <a class="btn icon-btn btn-success" href="buy?id=${p.id}"><span class="glyphicon btn-glyphicon glyphicon-shopping-cart img-circle text-success"></span> Add to cart</a> 
                         </div></c:if>
                         <c:if test="${pageContext.request.userPrincipal.name  == null}">
 					<div class="col-sm-6">

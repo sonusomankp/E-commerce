@@ -75,7 +75,7 @@ form_main {
 		<div class="form_main">
                 <h4 class="heading"><strong>Shipping </strong>Details <span></span></h4>
                 <div class="form">
-                <form action="orderadd">
+                <form action="orderadd" method="post">
                    
                     Email:<input type="text" required="" placeholder="Enter your Email" value="" name="email" class="txt">
                     Mobileno:<input type="text" required="" placeholder="Enter your mobile no" value="" name="mob" class="txt">

@@ -17,12 +17,6 @@
 
 
 <div class="container">
-
-  
-</div>
-
-<div class="container">
-  <h2>M4MOBILES</h2>  
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">

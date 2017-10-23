@@ -70,6 +70,14 @@ public class OrderController {
 		mv1.addObject("cate",l);
 		return mv1;
 }
+	@RequestMapping("/bill")
+	public ModelAndView bill() {
+		
+		ModelAndView mv1 = new ModelAndView("billing");
+		ArrayList<Category> l=(ArrayList<Category>)cdao.getallcategories();
+		mv1.addObject("cate",l);
+		return mv1;
+}
 	
 	// save order details
 		@RequestMapping("/orderadd")
@@ -92,7 +100,7 @@ public class OrderController {
 		    
 		    
 		    ArrayList<Order> ss=(ArrayList<Order>)ordao.getorderbyusername(Username);
-		    mv1.addObject("su",ss);
+		    mv1.addObject("su",ss.get(ss.size()-1));
 		    
 		    
 		    
@@ -117,8 +125,19 @@ public class OrderController {
 				@RequestMapping("/pay")
 				public ModelAndView pay()
 				{
-				
+					org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+				    String Username = auth.getName();
+					
 					ModelAndView mv1 = new ModelAndView("thankyou");
+					ArrayList<Cart> ll=(ArrayList<Cart>)crdao.getcartbyusernmae(Username);
+					
+					for(Cart cart:ll)
+					{
+						int cid= cart.getCartid();
+					    crdao.deleteCart(cid);
+					}
+				  	 
+					
 					return mv1;
 					
 				}

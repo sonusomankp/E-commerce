@@ -9,6 +9,12 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <script>
+function myFunction() {
+    window.print();
+}
+</script>
 <style>
 body {
   font-size: 16px;
@@ -56,21 +62,21 @@ body {
           <div class="col-lg-7 col-md-7 col-sm-7">
           
             <h3>BILLING ADDRESS : </h3>
-           <c:forEach var="s" items="${su}">
-            <h5>Mob no:${s.mobno}</h5>
-            <h5>Email:${s.email}</h5>
-            <h5>Address:${s.address}</h5>
-            </c:forEach>
+         <%--  <c:forEach var="s" items="${su}"> --%>
+            <h5>Mob no:${su.mobno}</h5>
+            <h5>Email:${su.email}</h5>
+            <h5>Address:${su.address}</h5>
+           <%--  </c:forEach> --%>
             <br /> 
           </div>
          
           <div class="col-lg-5 col-md-5 col-sm-5">
             <h3>SHIPPING ADDRESS:</h3> 
-            <c:forEach var="s" items="${su}">
-            <h5>Mob no:${s.mobno}</h5>
-            <h5>Email:${s.email}</h5>
-            <h5>Address:${s.address}</h5>
-            </c:forEach>
+            <%-- <c:forEach var="s" items="${su}"> --%>
+            <h5>Mob no:${su.mobno}</h5>
+            <h5>Email:${su.email}</h5>
+            <h5>Address:${su.address}</h5>
+            <%-- </c:forEach> --%>
           </div>
         </div>
         <hr />
@@ -143,7 +149,7 @@ body {
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12">
             <a href="pay" class="btn btn-success btn-sm">Confirm Order</a>    
-            <a href="#" class="btn btn-info btn-sm">Download Receipt</a>
+            <button onclick="myFunction()" class="btn btn-info btn-sm">Download Receipt</button>
           </div>
         </div>
         
@@ -154,7 +160,7 @@ body {
       </div>
     </div>
 </div>
-
+<jsp:include page="footer.jsp"/>
 
 </body>
 </html>

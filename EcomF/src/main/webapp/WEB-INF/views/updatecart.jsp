@@ -92,6 +92,7 @@
 							<td data-th="Quantity">
 							<form action="cartupdate">
 							 <input id="prodId" name="cid" type="hidden" value="${ca.cartid}">
+							 <input id="prodI" name="proid" type="hidden" value="${ca.product.id}">
 								<input type="number" class="form-control text-center" value="${ca.quantity }" name="quantity">
 							    <input id="submit" class="btn btn-info btn-md" name="submit" type="submit" value="UPDATE" style="width:100%">
 							</form>
