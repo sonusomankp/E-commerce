@@ -9,12 +9,12 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style>
+
 <style>
 .btn-product{
 	width: 100%;
 }
-.btn-glyphicon { padding:8px; background:#ffffff; margin-right:4px; text-align: center; }
+.btn-glyphicon { padding:8px; background:#ffffff; margin-right:4px;}
 .icon-btn { padding: 1px 15px 3px 2px; border-radius:50px;}
 
 </style>
@@ -43,11 +43,16 @@
                    
                         </div></div>
                         <div class="row">
-                        <div class="col-sm-6" >
+                        <div class="col-sm-6">
                         <a class="btn icon-btn btn-primary " href="prou1?id=${p.id}"><span class="glyphicon btn-glyphicon glyphicon-zoom-in img-circle text-primary"></span>Quick view</a>                        
                            </div>
-                        
-                       
+                        <c:if test="${pageContext.request.userPrincipal.name  != null}">
+                        <div class="col-sm-6">
+                           <a class="btn icon-btn btn-success" href="buy?id=${p.id}"><span class="glyphicon btn-glyphicon glyphicon-shopping-cart img-circle text-success"></span> Add to cart</a> 
+                        </div></c:if>
+                        <c:if test="${pageContext.request.userPrincipal.name  == null}">
+					<div class="col-sm-6">
+                          <a class="btn icon-btn btn-success" href="in"><span class="glyphicon btn-glyphicon glyphicon-log-in img-circle text-success"></span>Login in</a></div></c:if></div>
                 </div>
             </div>
         </div></a>

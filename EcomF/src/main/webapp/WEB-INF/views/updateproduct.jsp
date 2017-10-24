@@ -26,7 +26,7 @@ th, td {
 
 <h4>Product update</h4>
 
-<form action="proupd">
+<form action="proupd"  enctype="multipart/form-data" method="post">
 <table>
 <tr>
   <td>product id: </td> <td><input type="text" name="id" value="${sup.id}"> </td> </tr> 
@@ -34,7 +34,7 @@ th, td {
  <tr> <td> product short desc:</td> <td> <input type="text" name="sdes" value="${sup.shortDescrption}"></td></tr>
  
   <tr> <td>category: </td> <td> <select name="ca">
-     <option value="volvo">Select Category</option>
+     <option value="volvo">${sup.category.cname }</option>
      <c:forEach var="designatee" items="${catego}">
                        <option value="${designatee.c_id}">${designatee.cname}</option>    
                     </c:forEach>      
@@ -60,6 +60,7 @@ th, td {
  
  <tr> <td> product price:</td> <td> <input type="number" name="pric" value="${sup.price}"></td></tr>
  <tr> <td> product stock:</td> <td> <input type="number" name="stoc" value="${sup.stock}"></td></tr>
+ <tr> <td> image:</td> <td> <input type="file" name="img" value="${sup.img}"></td></tr>
   <tr> <td><input class="btn btn-success" type="submit" value="Update"></td></tr>
   </table>
 </form>

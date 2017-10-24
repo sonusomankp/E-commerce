@@ -14,6 +14,37 @@
 .error-template {padding: 40px 15px;text-align: center;}
 .error-actions {margin-top:15px;margin-bottom:15px;}
 .error-actions .btn { margin-right:10px; }
+
+
+.container{
+padding: 30px;   
+}
+
+
+.modal-content{
+  background-color:#222;
+  color:#ddd;
+}
+
+.modal-dialog {
+  width: 400px;
+  overflow: auto;
+  background-color:#333;
+}
+
+/* custom animation */
+.modal.fade {
+  left: -50%;
+  -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+     -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+       -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+          transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+
+.modal.fade.in {
+  left: 100px;
+}
+
 </style>
 
 </head>
@@ -21,6 +52,28 @@
 <jsp:include page="header.jsp"/>
 <div class="container">
     <div class="row">
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-globe">M4MOBILES </span><small>©2017</small></h4>
+</div>
+<div class="modal-body">
+
+<h3>M4MOBILES</h3>
+<h5>m4mobiles@gmail.com</h5>
+<h5>+91 9846629307</h5>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div> <!-- #/myModal -->
+
+
         <div class="col-md-12">
             <div class="error-template">
                 <h1>
@@ -32,7 +85,7 @@
                 </div>
                 <div class="error-actions">
                     <a href="./" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
-                        Take Me Home </a><a href="" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Contact Support </a>
+                        Take Me Home </a><a href="" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-envelope"></span> Contact Support </a>
                 </div>
             </div>
         </div>

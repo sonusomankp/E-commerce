@@ -25,16 +25,17 @@ th, td {
 </head>
 <body>
 <jsp:include page="header.jsp"/>
+<h5>${c}</h5>
 <h3>CATEGORY LIST</h3>
 <c:forEach var="designatee" items="${catego}">
 <table>
 <tr>
 
-<th width="110px"><a href="categoryid?id=${designatee.c_id}">${designatee.cname}</a></th>
-<th>
+<th width="110px">${designatee.cname}</a></th>
+<th width="110px">
     <a href="catu?id=${designatee.c_id}"><button type="submit" class="btn btn-info" ><span class="glyphicon glyphicon-pencil"></span>Edit</button> </a></th> <br>
-    <th><a href="catdel?id=${designatee.c_id}">
-    <button type="submit" class="btn btn-danger" href="listC"> <span class="glyphicon glyphicon-trash"></span>Delete</button> </a></th>
+    <th width="110px"><a href="catdel?id=${designatee.c_id}">
+    <button type="submit" class="btn btn-danger" > <span class="glyphicon glyphicon-trash"></span>Delete</button> </a></th>
 </tr>  
                        
        

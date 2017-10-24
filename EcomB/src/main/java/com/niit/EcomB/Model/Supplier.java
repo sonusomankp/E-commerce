@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,7 +34,7 @@ public class Supplier implements Serializable
 	@Column(name="Saddr")
 	private String Saddr;
 	
-	 @OneToMany(targetEntity=Product.class,mappedBy="supplier",cascade=CascadeType.ALL)
+	 @OneToMany(targetEntity=Product.class,mappedBy="supplier", fetch=FetchType.EAGER)
 	    private Set<Product> product;
 
 

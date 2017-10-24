@@ -44,7 +44,7 @@ public class SupplierController {
 	
 	//list supplier
 	@RequestMapping("/admin/listS")
-	public ModelAndView listS()
+	public ModelAndView listS(@RequestParam("f") String s)
 	{
 
 		System.out.println("list S");
@@ -52,30 +52,41 @@ public class SupplierController {
 		ModelAndView mv = new ModelAndView("listsupplier");
 		ArrayList<Supplier> cat=(ArrayList<Supplier>)sdao.getallsuppliers();
 		mv.addObject("su",cat);
-	
+		
+		if(s == "")
+		{
+			mv.addObject("c","");
+		
+		}
+		else
+		{
+			mv.addObject("c",s);
+		}
+		
+		
 		return mv;
 	}
 	
 	//delete supplier
 	@RequestMapping("/admin/supdel")
-	public ModelAndView supdelete(@RequestParam("id") int sup) {
-		System.out.println("in contoller"+sup);
-		ArrayList<Supplier> s = new ArrayList<Supplier>();
-		sdao.deleteSupplier(sup);
+	public String supdelete(@RequestParam("id") int sup) {
+		String c ="";
+		try
+		{
+			sdao.deleteSupplier(sup);
+			c="success";
+		}
+		catch(Exception e)
+		{
+			c="can't delete";
+		}
+		return "redirect:/admin/listS?f="+c;
 		
-		ArrayList<Supplier> cat=(ArrayList<Supplier>)sdao.getallsuppliers();
 		
-		
-		
-		ModelAndView mv1 = new ModelAndView("redirect:/admin/listS");
-		mv1.addObject("pros",s);
-		mv1.addObject("su",cat);
-		
-		
-		
-		return mv1;
 		
 	}
+		
+	
 	
 	//supplier update
 	 @RequestMapping("/admin/supupd")
@@ -91,7 +102,7 @@ public class SupplierController {
 	      sdao.updateSupplier(s);
 	    
 	    
-	    ModelAndView mv1 = new ModelAndView("redirect:/admin/listS");
+	    ModelAndView mv1 = new ModelAndView("redirect:/admin/listS?f=");
 	    return mv1;
 	}
 	  

@@ -45,7 +45,7 @@ public class ProductController {
 	
 	//product list
 	@RequestMapping("/admin/listP")
-	public ModelAndView listP()
+	public ModelAndView listP(@RequestParam("f") String s)
 	{
 
 		System.out.println("list P");
@@ -53,44 +53,59 @@ public class ProductController {
 		ModelAndView mv = new ModelAndView("listproduct");
 		ArrayList<Product> cat=(ArrayList<Product>)pdao.getallproducts();
 		mv.addObject("pr",cat);
+		
+	
+		if(s == "")
+		{
+			mv.addObject("c","");
+		
+		}
+		else
+		{
+			mv.addObject("c",s);
+		}
+		
+	
+		
 	
 		return mv;
 	}
 	
 	//product delete
 	 @RequestMapping("/admin/prodel")
-		public ModelAndView prodelete(@RequestParam("id") int prod) {
-			System.out.println("in contoller"+prod);
-			ArrayList<Product> s = new ArrayList<Product>();
-			pdao.deleteProduct(prod);
-			
-			ArrayList<Product> cat=(ArrayList<Product>)pdao.getallproducts();
-			
-			
-			
-			ModelAndView mv1 = new ModelAndView("redirect:/admin/listP");
-			mv1.addObject("pros",s);
-			mv1.addObject("pr",cat);
-			
-			
-			
-			return mv1;
+		public String prodelete(@RequestParam("id") int prod) {
+		
+		 String c ="";
+			try
+			{
+				pdao.deleteProduct(prod);
+				c="success";
+			}
+			catch(Exception e)
+			{
+				c="can't delete";
+			}
+			return "redirect:/admin/listP?f="+c;
 
 	}
 	 
 	 
 	 //product update
 	 @RequestMapping("/admin/proupd")
-		public ModelAndView proupdate(@RequestParam("id") int id,@RequestParam("name") String name ,@RequestParam("sdes") String shor,@RequestParam("pric") int price,@RequestParam("stoc") int stock,@RequestParam("ca") int categ,@RequestParam("su") int suppli ) 
+		public ModelAndView proupdate(@RequestParam("id") int id,@RequestParam("name") String name ,@RequestParam("sdes") String shor,@RequestParam("pric") int price,@RequestParam("stoc") int stock,@RequestParam("ca") int categ,@RequestParam("su") int suppli,@RequestParam("img") MultipartFile file ) 
 	{
+		 
+		
 		  System.out.println("in controller pro");
 		  System.out.println(name);
-		  Product p = new Product();
+		  Product p =pdao.getprobyid(id);
 		  p.setId(id);
 		  p.setName(name);
 		  p.setShortDescrption(shor);
 		  p.setPrice(price);
 		  p.setStock(stock);
+		  
+		  
 		  
 		  Category ca = new Category();
 			ca = cdao.getcatbyid(categ);
@@ -100,9 +115,36 @@ public class ProductController {
 			sa = sdao.getsupbyid(suppli);
 			p.setSupplier(sa);
 			
+		if(file.getOriginalFilename()!="")
+		{
+			 String img=file.getOriginalFilename();
+			 p.setImg(img);
+		
+			/* String filepath = request.getSession().getServletContext().getRealPath("/") + "resources/product/" + file.getOriginalFilename();
+			*/
+		    String filepath ="C:/Users/SONU/workspace/EcomF/src/main/webapp/resources/proimages/" + file.getOriginalFilename();
+			System.out.println("File Path : "+filepath);
+			System.out.println(filepath);
+			try {
+				byte imagebyte[] = file.getBytes();
+				BufferedOutputStream fos = new BufferedOutputStream(new FileOutputStream(filepath));
+				fos.write(imagebyte);
+				fos.close();
+				} catch (IOException e) {
+				e.printStackTrace();
+				} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				}
+			
+		}
+			
+			
+			
+			
 		pdao.updateProduct(p);
 		
-	    ModelAndView mv1 = new ModelAndView("redirect:/admin/listP");
+	    ModelAndView mv1 = new ModelAndView("redirect:/admin/listP?f=");
 	    return mv1;
 	}
 	  

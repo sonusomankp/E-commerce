@@ -25,16 +25,17 @@ th, td {
 </head>
 <body>
 <jsp:include page="header.jsp"/>
+<h5>${c}</h5>
 <h3>PRODUCT LIST</h3>
 <c:forEach var="p" items="${pr}">
 <table>
 <tr>
-<th><img src="${pageContext.request.contextPath}/resources/proimages/${p.img}" alt="..." class="img-responsive" width="80px" height="50px"/></th>
-<th width="110px"><a href="categoryid?id=${p.id}">${p.name}</a></li></th>
-<th><a href="prou?id=${p.id}"><button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span>Edit</button> </a></th> 
+<th width="110px"><img src="${pageContext.request.contextPath}/resources/proimages/${p.img}" alt="..." class="img-responsive" width="80px" height="50px"/></th>
+<th width="110px">${p.name}</th>
+<th width="110px"><a href="prou?id=${p.id}"><button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span>Edit</button> </a></th> 
     
-    <th><a href="prodel?id=${p.id}">
-    <button type="submit" class="btn btn-danger" href="listP"><span class="glyphicon glyphicon-trash"></span>Delete</button> </a></th>
+    <th width="110px"><a href="prodel?id=${p.id}">
+    <button type="submit" class="btn btn-danger" ><span class="glyphicon glyphicon-trash"></span>Delete</button> </a></th>
 </tr>  
                        
       

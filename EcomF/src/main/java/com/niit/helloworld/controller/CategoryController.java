@@ -47,14 +47,25 @@ public class CategoryController {
 	//	category list
 	
 	@RequestMapping("/admin/listC")
-	public ModelAndView listC()
+	public ModelAndView listC(@RequestParam("f") String s)
 	{
-
-		System.out.println("list C");
 		
 		ModelAndView mv = new ModelAndView("listcategory");
 		ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
 		mv.addObject("catego",cat);
+
+		System.out.println("list C");
+		if(s == "")
+		{
+			mv.addObject("c","");
+		
+		}
+		else
+		{
+			mv.addObject("c",s);
+		}
+		
+	
 	
 		return mv;
 	}
@@ -62,22 +73,20 @@ public class CategoryController {
 //	category delete
 	
 	@RequestMapping("/admin/catdel")
-	public ModelAndView catdelete(@RequestParam("id") int cad) {
-		System.out.println("in contoller"+cad);
-		ArrayList<Category> c = new ArrayList<Category>();
-		cdao.deleteCategory(cad);
+	public String catdelete(@RequestParam("id") int cad) {
+		String c ="";
+		try
+		{
+			cdao.deleteCategory(cad);
+			c="success";
+		}
+		catch(Exception e)
+		{
+			c="can't delete";
+		}
+		return "redirect:/admin/listC?f="+c;
 		
-		ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
 		
-		
-		
-		ModelAndView mv1 = new ModelAndView("redirect:/admin/listC");
-		mv1.addObject("pros",c);
-		mv1.addObject("catego",cat);
-		
-		
-		
-		return mv1;
 		
 	}
 	
@@ -95,7 +104,7 @@ public class CategoryController {
 	      cdao.updateCategory(c);
 	      
 	      
-	      ModelAndView mv1 = new ModelAndView("redirect:/admin/listC");
+	      ModelAndView mv1 = new ModelAndView("redirect:/admin/listC?f=");
 	      return mv1;
 	  }
 	 		

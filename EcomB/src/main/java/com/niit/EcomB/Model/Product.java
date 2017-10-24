@@ -1,13 +1,17 @@
 package com.niit.EcomB.Model;
 import java.io.Serializable;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -48,9 +52,20 @@ public class Product implements Serializable {
 	@ManyToOne
     @JoinColumn(name="c_id",insertable=true,updatable=true,nullable=false)
     private Category category;
+	
     @ManyToOne
     @JoinColumn(name="s_id",insertable=true,updatable=true,nullable=false)
     private Supplier supplier;
+    
+    @OneToMany(targetEntity=Cart.class,mappedBy="product", fetch=FetchType.EAGER)
+    private Set<Cart> cart;
+    
+	public Set<Cart> getCart() {
+		return cart;
+	}
+	public void setCart(Set<Cart> cart) {
+		this.cart = cart;
+	}
 	public int getId() {
 		return id;
 	}

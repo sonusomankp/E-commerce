@@ -176,6 +176,8 @@ public class AdminController {
 		mv1.addObject("pros",p1);
 		
 		
+		
+		
 		ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
 		mv1.addObject("cate",cat);
 		

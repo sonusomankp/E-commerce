@@ -92,9 +92,7 @@
   <div id="lis" class="tab-pane fade">
     <h3>List</h3>
     <div>
-    <form action="listC">
-    <button type="submit" class="btn btn-success" href="listcategory">Category</button>
-    </form>
+   <a href="listC?f="><button type="submit" class="btn btn-success" >Category</button></a>
     </div>
     
     
@@ -102,9 +100,9 @@
     
     
     <div>
-    <form action="listP">
-    <button type="submit" class="btn btn-info" href="listproduct">Product</button>
-      </form>
+   
+    <a href="listP?f="><button type="submit" class="btn btn-info">Product</button></a>
+      
     </div>
     
     
@@ -112,9 +110,9 @@
     
     
      <div>
-     <form action="listS">
-    <button type="submit" class="btn btn-warning" href="listsupplier">Supplier</button>
-     </form>
+    
+    <a href="listS?f="><button type="submit" class="btn btn-warning">Supplier</button>  </a>
+     
     </div>
     
 

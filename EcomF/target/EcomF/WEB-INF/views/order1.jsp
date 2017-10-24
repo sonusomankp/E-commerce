@@ -77,7 +77,7 @@ form_main {
                 <div class="form">
                 <form action="orderadd" method="post">
                    
-                    Email:<input type="text" required="" placeholder="Enter your Email" value="" name="email" class="txt">
+                    Name:<input type="text" required="" placeholder="Enter your Name" value="" name="email" class="txt">
                     Mobileno:<input type="text" required="" placeholder="Enter your mobile no" value="" name="mob" class="txt">
                     Address:<textarea placeholder="Enter Address" name="add" type="text" class="txt_3"></textarea>
                      <input type="submit" value="NEXT" name="submit" class="txt2">
