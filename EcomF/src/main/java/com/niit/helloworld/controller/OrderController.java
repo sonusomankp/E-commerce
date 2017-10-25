@@ -61,8 +61,16 @@ public class OrderController {
 	@Autowired
 	OrderDao ordao;
 	
-	
 	@RequestMapping("/order")
+	public ModelAndView orde() {
+		ModelAndView mv1 = new ModelAndView("redirect:/user/order");
+		return mv1;
+		
+	}
+	
+	
+	
+	@RequestMapping("/user/order")
 	public ModelAndView orders() {
 		
 		ModelAndView mv1 = new ModelAndView("order1");
@@ -70,17 +78,26 @@ public class OrderController {
 		mv1.addObject("cate",l);
 		return mv1;
 }
-	@RequestMapping("/bill")
-	public ModelAndView bill() {
-		
-		ModelAndView mv1 = new ModelAndView("billing");
-		ArrayList<Category> l=(ArrayList<Category>)cdao.getallcategories();
-		mv1.addObject("cate",l);
+	
+//	@RequestMapping("/user/bill")
+//	public ModelAndView bill() {
+//		
+//		ModelAndView mv1 = new ModelAndView("billing");
+//		ArrayList<Category> l=(ArrayList<Category>)cdao.getallcategories();
+//		mv1.addObject("cate",l);
+//		return mv1;
+//}
+	@RequestMapping("/orderadd")
+	public ModelAndView oadd()
+	{
+		ModelAndView mv1 = new ModelAndView("redirect:/user/orderadd");
 		return mv1;
-}
+	}
+	
+	
 	
 	// save order details
-		@RequestMapping("/orderadd")
+		@RequestMapping("/user/orderadd")
 		public ModelAndView up(@RequestParam("email") String uemail,@RequestParam("mob") long no,@RequestParam("add") String addr) {
 			org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		    String Username = auth.getName();
@@ -121,8 +138,16 @@ public class OrderController {
 			
 		}
 		
+		@RequestMapping("/pay")
+		public ModelAndView pays()
+		{
+			ModelAndView mv1 = new ModelAndView("redirect:/user/pay");
+			return mv1;
+		}
+		
+		
 		// save order details
-				@RequestMapping("/pay")
+				@RequestMapping("/user/pay")
 				public ModelAndView pay()
 				{
 					org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();

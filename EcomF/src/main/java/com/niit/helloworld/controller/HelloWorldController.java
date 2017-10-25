@@ -78,6 +78,14 @@ public class HelloWorldController {
 	    return mv;
 	}
 	
+	@RequestMapping("/user")
+	public ModelAndView indexus()
+	{		
+		ModelAndView mv = new ModelAndView("redirect:/");		
+	    return mv;
+	}
+	
+	
 	//login
 	@RequestMapping("/in")
 	public ModelAndView login()

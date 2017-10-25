@@ -55,7 +55,26 @@ public class CartController {
 	@Autowired
 	CartDao crdao;
 	
-	@RequestMapping("cart")
+	
+	@RequestMapping("/cart")
+	public ModelAndView addca(@RequestParam("id") int id)
+	{ 
+		ModelAndView mv1 = new ModelAndView("redirect:/user/cart?id="+id);
+		return mv1;
+		
+	}
+	
+	@RequestMapping("/car")
+	public ModelAndView carth()
+	{ 
+		ModelAndView mv1 = new ModelAndView("redirect:/user/car");
+		return mv1;
+		
+	}
+	
+	
+	
+	@RequestMapping("/user/cart")
 	public ModelAndView addcart(@RequestParam("id") int id)
 	{ 
 		
@@ -132,7 +151,7 @@ int count=0,cartid=0;
 		return mv1;
 	}
 	
-	@RequestMapping("car")
+	@RequestMapping("/user/car")
 	public ModelAndView car(){
 		
 		ModelAndView mv1 = new ModelAndView("cart");
@@ -161,8 +180,11 @@ int count=0,cartid=0;
 		
 	}
 	
+	
+	
+	
 	//cart delete
-	@RequestMapping("/cartdel")
+	@RequestMapping("/user/cartdel")
 	public ModelAndView cartdelete(@RequestParam("prid") int carid) {
 		
 		//stock
@@ -174,7 +196,7 @@ int count=0,cartid=0;
 		
 		
 		crdao.deleteCart(carid);
-		ModelAndView mv1 = new ModelAndView("redirect:/car");
+		ModelAndView mv1 = new ModelAndView("redirect:/user/cart");
 		ArrayList<Category> l=(ArrayList<Category>)cdao.getallcategories();
 		mv1.addObject("cate",l);
 		String Username=SecurityContextHolder.getContext().getAuthentication().getName();
@@ -193,8 +215,15 @@ int count=0,cartid=0;
 		return mv1;
 }
 	
-	//redirecting to cart update page
 	@RequestMapping("/cartup")
+	public ModelAndView cartu(@RequestParam("cartid") int cartid){
+	ModelAndView mv1 = new ModelAndView("redirect:/user/cartup?cartid"+cartid);
+	return mv1;
+			
+	}
+	
+	//redirecting to cart update page
+	@RequestMapping("/user/cartup")
 		public ModelAndView cartupdate(@RequestParam("cartid") int cartid) {
 			
 			ModelAndView mv1 = new ModelAndView("updatecart");
@@ -209,7 +238,7 @@ int count=0,cartid=0;
 	
 
 	//cart update 
-		@RequestMapping("/cartupdate")
+		@RequestMapping("/user/cartupdate")
 		public ModelAndView cartupda(@RequestParam("cid") int cartid, @RequestParam("quantity") int quantity,@RequestParam("proid") int pid) {
 			System.out.println(cartid);
 			ModelAndView mv1 = new ModelAndView("cart");
@@ -249,8 +278,14 @@ int count=0,cartid=0;
 			return mv1;
 		}
 		
+		@RequestMapping("/buy")
+		public ModelAndView buyn(@RequestParam("id") int id)
+		{
+			ModelAndView mv1 = new ModelAndView("redirect:/user/buy?id="+id);
+			return mv1;
+		}
 		
-		@RequestMapping("buy")
+		@RequestMapping("/user/buy")
 		public ModelAndView buynow(@RequestParam("id") int id)
 		{ 
 			

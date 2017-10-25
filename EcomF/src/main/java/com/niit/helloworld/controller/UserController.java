@@ -52,7 +52,7 @@ public class UserController {
 	    p.setUemail(uemail);
 	    p.setUpass(pass);
 	    p.setUmob(no);
-	    p.setRole("USER ROLE");
+	    p.setRole("ROLE_USER");
 		udao.saveUser(p);
 	
 		ModelAndView mv1 = new ModelAndView("signup");

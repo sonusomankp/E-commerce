@@ -163,6 +163,22 @@ public class AdminController {
 		
 		return mv1;
 	}
+	@RequestMapping("/user/categoryid")
+	public ModelAndView prod(@RequestParam("id") int id) {
+		ModelAndView mv1 = new ModelAndView("redirect:/categoryid?id="+id);
+		return mv1;
+	}
+	
+	@RequestMapping("/user/categoryid1")
+	public ModelAndView pros(@RequestParam("id") int id) {
+		ModelAndView mv1 = new ModelAndView("redirect:/categoryid1?id="+id);
+		return mv1;
+	}
+	
+	
+	
+	
+	
 	
 	// product list
 	@RequestMapping("/categoryid")

@@ -34,7 +34,7 @@ th, td {
  <tr> <td> product short desc:</td> <td> <input type="text" name="sdes" value="${sup.shortDescrption}"></td></tr>
  
   <tr> <td>category: </td> <td> <select name="ca">
-     <option value="volvo">${sup.category.cname }</option>
+     <option value="${sup.category.c_id}">${sup.category.cname}</option>
      <c:forEach var="designatee" items="${catego}">
                        <option value="${designatee.c_id}">${designatee.cname}</option>    
                     </c:forEach>      
@@ -48,7 +48,7 @@ th, td {
     supplier:</td>
     <td>
     <select name="su">
-     <option value="volvo">Select Supplier</option>
+     <option value="${sup.supplier.s_id}">${sup.supplier.sname }</option>
      <c:forEach var="designatee" items="${cat}">
                        <option value="${designatee.s_id}">${designatee.sname}</option>    
                     </c:forEach>         
