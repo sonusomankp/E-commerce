@@ -56,6 +56,7 @@
 <c:if test ="${fn:length(ca) eq 0}">
 <h2>Oops!</h2>
 <h2><span class="glyphicon glyphicon-shopping-cart"></span>Cart is Empty</h2>
+<img src="${pageContext.request.contextPath}/resources/images/empty_cart.png">
 </c:if>
 </div>
 <c:if test ="${fn:length(ca) ge 1}">

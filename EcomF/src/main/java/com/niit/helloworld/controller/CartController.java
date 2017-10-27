@@ -196,24 +196,34 @@ int count=0,cartid=0;
 		
 		
 		crdao.deleteCart(carid);
-		ModelAndView mv1 = new ModelAndView("redirect:/user/cart");
-		ArrayList<Category> l=(ArrayList<Category>)cdao.getallcategories();
-		mv1.addObject("cate",l);
-		String Username=SecurityContextHolder.getContext().getAuthentication().getName();
+		ModelAndView mv1 = new ModelAndView("redirect:/user/car");
 		
-		ArrayList<Cart> ll=(ArrayList<Cart>)crdao.getcartbyusernmae(Username);
-		mv1.addObject("ca",ll);
-		
-		int total=0;
-		for(Cart cart:ll)
-		{
-		int sum=cart.getPrice()*cart.getQuantity();
-		total=total+sum;	
-		}
-		
-		mv1.addObject("t",total);
+//		ArrayList<Category> l=(ArrayList<Category>)cdao.getallcategories();
+//		mv1.addObject("cate",l);
+//		String Username=SecurityContextHolder.getContext().getAuthentication().getName();
+//		
+//		ArrayList<Cart> ll=(ArrayList<Cart>)crdao.getcartbyusernmae(Username);
+//		mv1.addObject("ca",ll);
+//		
+//		int total=0;
+//		for(Cart cart:ll)
+//		{
+//		int sum=cart.getPrice()*cart.getQuantity();
+//		total=total+sum;	
+//		}
+//		
+//		mv1.addObject("t",total);
 		return mv1;
 }
+	
+	@RequestMapping("/cartdel")
+	public ModelAndView cartd(@RequestParam("cartid") int cartid){
+	ModelAndView mv1 = new ModelAndView("redirect:/user/cartup?carid"+cartid);
+	return mv1;
+			
+	}
+	
+	
 	
 	@RequestMapping("/cartup")
 	public ModelAndView cartu(@RequestParam("cartid") int cartid){
@@ -241,7 +251,7 @@ int count=0,cartid=0;
 		@RequestMapping("/user/cartupdate")
 		public ModelAndView cartupda(@RequestParam("cid") int cartid, @RequestParam("quantity") int quantity,@RequestParam("proid") int pid) {
 			System.out.println(cartid);
-			ModelAndView mv1 = new ModelAndView("cart");
+			ModelAndView mv1 = new ModelAndView("redirect:/user/car");
 			
 			
 			//stock

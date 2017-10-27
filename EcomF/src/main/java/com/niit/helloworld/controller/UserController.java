@@ -55,7 +55,7 @@ public class UserController {
 	    p.setRole("ROLE_USER");
 		udao.saveUser(p);
 	
-		ModelAndView mv1 = new ModelAndView("signup");
+		ModelAndView mv1 = new ModelAndView("redirect:/in");
 		
 		return mv1;
 	}
