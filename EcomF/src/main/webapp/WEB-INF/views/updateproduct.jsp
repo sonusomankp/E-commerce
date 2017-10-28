@@ -29,7 +29,7 @@ th, td {
 <form action="proupd"  enctype="multipart/form-data" method="post">
 <table>
 <tr>
-  <td>product id: </td> <td><input type="text" name="id" value="${sup.id}"> </td> </tr> 
+  <td>product id: </td> <td>  <span style="cursor:not-allowed"> <input type="text" name="id" value="${sup.id}" readonly> </span></td> </tr> 
  <tr> <td> product name:</td> <td> <input type="text" name="name" value="${sup.name}"></td></tr>
  <tr> <td> product short desc:</td> <td> <input type="text" name="sdes" value="${sup.shortDescrption}"></td></tr>
  

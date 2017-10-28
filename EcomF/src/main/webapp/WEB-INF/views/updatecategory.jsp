@@ -25,7 +25,7 @@ th, td {
 <form action="catupd">
 <table>
 <tr>
-  <td>category id: </td> <td><input type="text" name="id" value="${cat.c_id}"> </td> </tr>
+  <td>category id: </td> <td><span style="cursor:not-allowed"><input type="text" name="id" value="${cat.c_id}" readonly> </span> </td> </tr>
  <tr> <td> category name:</td> <td> <input type="text" name="name" value="${cat.cname}"></td></tr>
   <tr> <td><input  class="btn btn-success" type="submit" value="Update"></td></tr>
   </table>

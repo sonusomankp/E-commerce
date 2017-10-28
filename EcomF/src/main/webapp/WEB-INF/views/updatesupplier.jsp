@@ -29,7 +29,7 @@ th, td {
 <form action="supupd">
 <table>
 <tr>
-  <td>supplier id: </td> <td><input type="text" name="id" value="${sup.s_id}"> </td> </tr>
+  <td>supplier id: </td> <td> <span style="cursor:not-allowed"><input type="text" name="id" value="${sup.s_id}" readonly> </span> </td> </tr>
  <tr> <td> supplier name:</td> <td> <input type="text" name="name" value="${sup.sname}"></td></tr>
  <tr> <td> supplier address:</td> <td> <input type="text" name="sad" value="${sup.saddr}"></td></tr>
   <tr> <td><input class="btn btn-success" type="submit" value="Update"></td></tr>
