@@ -82,7 +82,7 @@ public class CategoryController {
 		}
 		catch(Exception e)
 		{
-			c="can't delete";
+			c="can't delete(already in product)";
 		}
 		return "redirect:/admin/listC?f="+c;
 		
@@ -96,8 +96,7 @@ public class CategoryController {
 	  @RequestMapping("/admin/catupd")
 	 	public ModelAndView catupdate(@RequestParam("id") int cid,@RequestParam("name") String cname ) 
 	  {
-		  System.out.println("in controller");
-		  System.out.println(cname);
+		
 		  Category c=new Category();
 		  c.setC_id(cid);
 		  c.setCname(cname);

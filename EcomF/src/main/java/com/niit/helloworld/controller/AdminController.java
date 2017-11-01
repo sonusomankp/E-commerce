@@ -61,11 +61,11 @@ public class AdminController {
 	public ModelAndView Admin()
 	{
 
-		System.out.println("in controller");
+		
 		ModelAndView mv = new ModelAndView("admin");
 		ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
 		ArrayList<Supplier> ss= (ArrayList<Supplier>)sdao.getallsuppliers();
-		System.out.println("hai after retrieve 1");
+		
 		
 		
 		mv.addObject("cate",cat);
@@ -77,7 +77,7 @@ public class AdminController {
 	public ModelAndView admin()
 	{
 
-		System.out.println("in controller");
+		
 		ModelAndView mv = new ModelAndView("redirect:/admin/Admin");
 		return mv;
 	}
@@ -87,8 +87,7 @@ public class AdminController {
 	
 	@RequestMapping("/admin/supp")
 	public ModelAndView supp(@RequestParam("dtype") String sname,@RequestParam("psw") String sadd) {
-		System.out.println("in controller");
-		System.out.println(sname+sadd);
+		
 		Supplier s=new Supplier();
 		s.setSname(sname);
 		s.setSaddr(sadd);
@@ -102,8 +101,7 @@ public class AdminController {
 	
 	@RequestMapping("/admin/cate")
 	public ModelAndView cate(@RequestParam("psw") String cname) {
-		System.out.println("in controller");
-		System.out.println(cname);
+		
 		Category c=new Category();
 		c.setCname(cname);
 		cdao.saveCategory(c);
@@ -119,8 +117,7 @@ public class AdminController {
 	
 	@RequestMapping(value="/admin/pro",method=RequestMethod.POST)
 	public ModelAndView pro(@RequestParam("name") String name ,@RequestParam("sdes") String shor,@RequestParam("pric") int price,@RequestParam("stoc") int stock,@RequestParam("ca") int categ,@RequestParam("su") int suppli,@RequestParam("img") MultipartFile file) {
-		System.out.println("in controller");
-		System.out.println(name+shor+price+stock+categ+suppli);
+	
 		Product pr=new Product();
 		
 		
@@ -163,11 +160,16 @@ public class AdminController {
 		
 		return mv1;
 	}
+	
+	
+	
 	@RequestMapping("/user/categoryid")
 	public ModelAndView prod(@RequestParam("id") int id) {
 		ModelAndView mv1 = new ModelAndView("redirect:/categoryid?id="+id);
 		return mv1;
 	}
+	
+	
 	
 	@RequestMapping("/user/categoryid1")
 	public ModelAndView pros(@RequestParam("id") int id) {
@@ -175,15 +177,12 @@ public class AdminController {
 		return mv1;
 	}
 	
-	
-	
-	
-	
+
 	
 	// product list
 	@RequestMapping("/categoryid")
 	public ModelAndView productlist(@RequestParam("id") int ca) {
-		System.out.println("in contoller"+ca);
+		
 		ArrayList<Product> p1=new ArrayList<Product>();
 		p1=pdao.getprbyid(ca);
 		
@@ -206,7 +205,7 @@ public class AdminController {
 	// product list
 		@RequestMapping("/categoryid1")
 		public ModelAndView productlist1(@RequestParam("id") int ca) {
-			System.out.println("in contoller"+ca);
+			
 			ArrayList<Product> p1=new ArrayList<Product>();
 			p1=pdao.getprbyid(ca);
 			

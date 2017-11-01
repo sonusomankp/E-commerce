@@ -78,7 +78,7 @@ public class SupplierController {
 		}
 		catch(Exception e)
 		{
-			c="can't delete";
+			c="can't delete(already in product";
 		}
 		return "redirect:/admin/listS?f="+c;
 		

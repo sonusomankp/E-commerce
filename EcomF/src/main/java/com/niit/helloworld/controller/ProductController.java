@@ -83,7 +83,7 @@ public class ProductController {
 			}
 			catch(Exception e)
 			{
-				c="can't delete";
+				c="can't delete(already in cart)";
 			}
 			return "redirect:/admin/listP?f="+c;
 
@@ -96,8 +96,7 @@ public class ProductController {
 	{
 		 
 		
-		  System.out.println("in controller pro");
-		  System.out.println(name);
+		
 		  Product p =pdao.getprobyid(id);
 		  p.setId(id);
 		  p.setName(name);
@@ -155,7 +154,7 @@ public class ProductController {
 	{
 		  Product p=new Product();
 		  p=pdao.getprobyid(id);
-		  System.out.println("prou");
+		  
 		  
 	   
 		  ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();
@@ -178,7 +177,7 @@ public class ProductController {
 	{
 		  Product p=new Product();
 		  p=pdao.getprobyid(id);
-		  System.out.println("prou");
+		  
 		  
 	   
 		  ArrayList<Category> cat=(ArrayList<Category>)cdao.getallcategories();

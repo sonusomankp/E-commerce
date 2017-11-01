@@ -73,7 +73,7 @@ public class CartController {
 	}
 	
 	
-	
+	//add cart
 	@RequestMapping("/user/cart")
 	public ModelAndView addcart(@RequestParam("id") int id)
 	{ 
@@ -132,10 +132,6 @@ int count=0,cartid=0;
 	
 	
 	
-	
-		
-		
-		
 		ModelAndView mv1 = new ModelAndView("productlist1");
 		Product ll=new Product();
 		ll=pdao.getprobyid(id);
@@ -151,6 +147,14 @@ int count=0,cartid=0;
 		return mv1;
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	//cart header
 	@RequestMapping("/user/car")
 	public ModelAndView car(){
 		
@@ -260,11 +264,7 @@ int count=0,cartid=0;
 			p.setStock(p.getStock()-(quantity-ss.getQuantity()));
 			pdao.updateProduct(p);
 			
-			
-			
-			
-			
-			
+					
 			ArrayList<Category> l=(ArrayList<Category>)cdao.getallcategories();
 			mv1.addObject("cate",l);
 		    Cart c= new Cart();
@@ -288,6 +288,11 @@ int count=0,cartid=0;
 			return mv1;
 		}
 		
+		
+		
+		
+		
+		//buy
 		@RequestMapping("/buy")
 		public ModelAndView buyn(@RequestParam("id") int id)
 		{
@@ -352,12 +357,7 @@ int count=0,cartid=0;
 		pdao.updateProduct(p);
 		
 		
-		
-		
-			
-			
-			
-			ModelAndView mv1 = new ModelAndView("redirect:/car");
+	        ModelAndView mv1 = new ModelAndView("redirect:/car");
 			Product ll=new Product();
 			ll=pdao.getprobyid(id);
 			

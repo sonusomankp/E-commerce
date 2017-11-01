@@ -22,7 +22,7 @@
 <div class="tab-content">
  
  <div id="prod" class="tab-pane fade in active ">
-    <form action="cate">
+    <form action="cate" method="post">
       <h3>Category</h3>
       
     <label><b>Category Name</b></label>
@@ -42,7 +42,7 @@
     <div class="form-group">
         <label for="inputName">Category</label>
         <select name="ca">
-     <option value="volvo">Select Category</option>
+    
      <c:forEach var="designatee" items="${catego}">
                        <option value="${designatee.c_id}">${designatee.cname}</option>    
                     </c:forEach>         
@@ -52,7 +52,7 @@
      
       <label for="inputName">Supplier</label>
       <select name="su">
-     <option value="volvo">Select Supplier</option>
+    
      <c:forEach var="designatee" items="${cat}">
                        <option value="${designatee.s_id}">${designatee.sname}</option>    
                     </c:forEach>         
@@ -76,7 +76,7 @@
     
     
     <div id="sup" class="tab-pane fade">
-    <form action="supp">
+    <form action="supp" method="post">
       <h3>Supplier</h3>
       <label><b>Supplier name</b></label>
     <input type="text" name="dtype" class="form-control" required></br>

@@ -32,7 +32,8 @@ import com.niit.EcomB.Model.Product;
 		{
 			this.sessionFactory=sessionfactory;
 		}	
-		
+	
+		//saving shipping address
 	 public void addorder(Order order)
 	 {
 		 Session ssn=sessionFactory.openSession();
@@ -43,6 +44,8 @@ import com.niit.EcomB.Model.Product;
 			ssn.close();
 		 
 	 }
+	 
+	 //get order by user name
 	 public ArrayList<Order> getorderbyusername(String Username) {
 		    Session ssn=sessionFactory.openSession();
 			Transaction t=ssn.getTransaction();

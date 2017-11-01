@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>MY CART</title>
 </head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -56,6 +56,7 @@
 <c:if test ="${fn:length(ca) eq 0}">
 <h2>Oops!</h2>
 <h2><span class="glyphicon glyphicon-shopping-cart"></span>Cart is Empty</h2>
+<img src="${pageContext.request.contextPath}/resources/images/empty_cart.png">
 </c:if>
 </div>
 <c:if test ="${fn:length(ca) ge 1}">
@@ -105,7 +106,7 @@
 					<tfoot>
 						
 						<tr>
-							<td><a href="#" class="btn btn-warning"><i class=" glyphicon glyphicon-shopping-cart"></i> Continue Shopping</a></td>
+							<td><a href="./" class="btn btn-warning"><i class=" glyphicon glyphicon-shopping-cart"></i> Continue Shopping</a></td>
 							<td colspan="2" class="hidden-xs"></td>
 							<td class="hidden-xs text-center"><strong>Total:&#8377;${t}</strong></td>
 							<td><a href="order" class="btn btn-success btn-block"><i class=" glyphicon glyphicon-log-out"></i> Checkout</a></td>

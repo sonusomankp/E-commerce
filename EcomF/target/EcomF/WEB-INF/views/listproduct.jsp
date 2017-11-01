@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>listP</title>
+<title>PRODUCT LIST</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -25,13 +25,16 @@ th, td {
 </head>
 <body>
 <jsp:include page="header.jsp"/>
+
 <h5>${c}</h5>
 <h3>PRODUCT LIST</h3>
+
+
 <c:forEach var="p" items="${pr}">
 <table>
 <tr>
 <th width="110px"><img src="${pageContext.request.contextPath}/resources/proimages/${p.img}" alt="..." class="img-responsive" width="80px" height="50px"/></th>
-<th width="110px">${p.name}</th>
+<th width="250px">${p.name}</th>
 <th width="110px"><a href="prou?id=${p.id}"><button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span>Edit</button> </a></th> 
     
     <th width="110px"><a href="prodel?id=${p.id}">
@@ -41,6 +44,7 @@ th, td {
       
   </table>
   </c:forEach>
+
 <br>
 <br>
 <br>

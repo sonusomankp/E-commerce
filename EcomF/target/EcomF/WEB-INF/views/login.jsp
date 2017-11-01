@@ -10,7 +10,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
-<body background="resources/images/403088-white-wallpaper-hd.jpg">>
+<body background="resources/images/403088-white-wallpaper-hd.jpg">
 <jsp:include page="header.jsp"/>
 
 <div class="container">

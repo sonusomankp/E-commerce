@@ -28,6 +28,7 @@ import com.niit.EcomB.Model.Product;
 			this.sessionFactory=sessionfactory;
 		}	
 		
+		//save cart
 	 public void addcart(Cart cart)
 	 {
 		 Session ssn=sessionFactory.openSession();
@@ -39,6 +40,7 @@ import com.niit.EcomB.Model.Product;
 		 
 	 }
 	 
+	 //get cart using user name
 	 public ArrayList<Cart> getcartbyusernmae(String Username) {
 		    Session ssn=sessionFactory.openSession();
 			Transaction t=ssn.getTransaction();
@@ -50,6 +52,8 @@ import com.niit.EcomB.Model.Product;
 	        ssn.close();
 			return cat;
 		}
+	 
+	 //get product by id
 
 		public Product getprbyid(int id) {
 			
@@ -64,7 +68,7 @@ import com.niit.EcomB.Model.Product;
 	}
 		
 		
-		
+	//get cart by cart id
 		public Cart getcartbyid(int id) {
 			Session ssn=sessionFactory.openSession();
 			Transaction t=ssn.getTransaction();
@@ -79,7 +83,7 @@ import com.niit.EcomB.Model.Product;
 			
 		}
 		
-		
+		//update quantity
 		public void updatequantity(int cartid, int i) {
 			Session ssn=sessionFactory.openSession();
 			Transaction t=ssn.getTransaction();
@@ -94,6 +98,7 @@ import com.niit.EcomB.Model.Product;
 			
 		}
 		
+		//delete cart
 		public void deleteCart(int id){
 			Session ssn=sessionFactory.openSession();
 			Transaction t=ssn.getTransaction();
@@ -105,6 +110,7 @@ import com.niit.EcomB.Model.Product;
 		}
 		
 		
+		//cart update
 		public void updateCart(Cart id){
 			Session ssn=sessionFactory.openSession();
 			Transaction t=ssn.getTransaction();
